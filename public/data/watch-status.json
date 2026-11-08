@@ -1,5 +1,5 @@
 {
-"generated": "2026-11-08T02:19:52Z",
+"generated": "2026-11-08T05:23:21Z",
 "version": "1.0.0",
 "targets": [
 {
@@ -8,7 +8,7 @@
 "label": "Companies House search: companies named Mountjoy",
 "page_url": "https://find-and-update.company-information.service.gov.uk/search/companies?q=Mountjoy+Limited",
 "status": "present",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [
 "MOUNTJOY",
@@ -22,7 +22,7 @@
 "label": "Coflein site 20182",
 "page_url": "https://coflein.gov.uk/en/site/20182",
 "status": "present",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [
 "1988",
@@ -37,7 +37,7 @@
 "label": "London Gazette: Western Ground Rents",
 "page_url": "https://www.thegazette.co.uk/all-notices/notice?text=%22Western+Ground+Rents%22",
 "status": "present",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [
 "WESTERN GROUND RENTS",
@@ -51,7 +51,7 @@
 "label": "Discovery: 1938 conveyance to Western Ground Rents Ltd",
 "page_url": "https://discovery.nationalarchives.gov.uk/results/r?_q=%22Western%20Ground%20Rents%22",
 "status": "present",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [
 "Western Ground Rents Ltd, rental books and plans | https://discovery.nationalarchives.gov.uk/details/r/N13741426",
@@ -78,7 +78,7 @@
 "label": "BP Archive page",
 "page_url": "https://www.bp.com/en/global/corporate/who-we-are/our-history/bp-archive.html",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:48:32Z",
 "matches": [],
 "note": ""
@@ -89,7 +89,7 @@
 "label": "Mount Stuart (Bute archives) search: Llandough",
 "page_url": "https://www.mountstuart.com/?s=Llandough",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -100,7 +100,7 @@
 "label": "Cadw listed buildings (open data, Llandough and Leckwith area)",
 "page_url": "https://datamap.gov.wales/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=inspire-wg:Cadw_ListedBuildings&outputFormat=application/json&srsName=EPSG:27700&count=500&bbox=314500,171500,318800,175500,EPSG:27700",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:55:28Z",
 "matches": [],
 "note": ""
@@ -111,7 +111,7 @@
 "label": "Church in Wales: Llandough",
 "page_url": "https://www.churchinwales.org.uk/en/?s=Llandough",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -122,7 +122,7 @@
 "label": "Dŵr Cymru environmental information (EIR) page",
 "page_url": "https://corporate.dwrcymru.com/en/community/environment/environmental-information-regulations",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:55:32Z",
 "matches": [],
 "note": ""
@@ -133,7 +133,7 @@
 "label": "London Gazette: Llandough Great House Farm",
 "page_url": "https://www.thegazette.co.uk/all-notices/notice?text=%22Great+House+Farm%22+Llandough",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -144,7 +144,7 @@
 "label": "GOV.UK search: Western Ground Rents Ltd",
 "page_url": "https://www.gov.uk/search/all?keywords=%22Western%20Ground%20Rents%22",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -155,7 +155,7 @@
 "label": "GOV.UK search: Great House Farm",
 "page_url": "https://www.gov.uk/search/all?keywords=%22Great%20House%20Farm%22%20Llandough",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -166,7 +166,7 @@
 "label": "GOV.UK search: Llandough land",
 "page_url": "https://www.gov.uk/search/all?keywords=Llandough%20Penarth%20land",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -177,7 +177,7 @@
 "label": "GOV.UK search: BP Properties at Llandough",
 "page_url": "https://www.gov.uk/search/all?keywords=%22BP%20Properties%22",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -188,7 +188,7 @@
 "label": "HER record GGAT02038s (Great House Farm)",
 "page_url": "https://archwilio.org.uk/her/chi3/report/page.php?watprn=GGAT02038s",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -202,7 +202,7 @@
 "checked": "2026-11-08T02:12:43Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
-"note": ""
+"note": "live 0; ia 20261107131312"
 },
 {
 "id": "0fcc91c4",
@@ -210,7 +210,7 @@
 "label": "Museum Wales collections: Llandough",
 "page_url": "https://museum.wales/collections/online/?terms=Llandough",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -221,7 +221,7 @@
 "label": "People's Collection Wales: Llandough",
 "page_url": "https://www.peoplescollection.wales/discover/query/Llandough",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:48:32Z",
 "matches": [],
 "note": ""
@@ -232,7 +232,7 @@
 "label": "Discovery: Great House Farm, Llandough",
 "page_url": "https://discovery.nationalarchives.gov.uk/results/r?_q=%22Great%20House%20Farm%22%20Llandough",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -243,7 +243,7 @@
 "label": "Discovery: Tŷ Mawr, Llandough",
 "page_url": "https://discovery.nationalarchives.gov.uk/results/r?_q=%22Ty%20Mawr%22%20Llandough",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -254,7 +254,7 @@
 "label": "Discovery: Cydfin farm",
 "page_url": "https://discovery.nationalarchives.gov.uk/results/r?_q=Cydfin",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -265,7 +265,7 @@
 "label": "Discovery: 1938 Llandough conveyance",
 "page_url": "https://discovery.nationalarchives.gov.uk/results/r?_q=Llandough%20conveyance%201938",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -276,7 +276,7 @@
 "label": "Discovery: 1988 Llandough eviction coverage",
 "page_url": "https://discovery.nationalarchives.gov.uk/results/r?_q=Llandough%20eviction%201988",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -287,7 +287,7 @@
 "label": "Discovery: BP Properties, Llandough",
 "page_url": "https://discovery.nationalarchives.gov.uk/results/r?_q=%22BP%20Properties%22%20Llandough",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -298,7 +298,7 @@
 "label": "Discovery: 1987 Llandough farm litigation",
 "page_url": "https://discovery.nationalarchives.gov.uk/results/r?_q=Llandough%20Penarth%20farm%201987",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -309,7 +309,7 @@
 "label": "Discovery: Mountjoy Ltd, Llandough",
 "page_url": "https://discovery.nationalarchives.gov.uk/results/r?_q=Mountjoy%20Llandough",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -320,7 +320,7 @@
 "label": "Discovery: Llandough village green (VG41)",
 "page_url": "https://discovery.nationalarchives.gov.uk/results/r?_q=Llandough%20village%20green",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -331,7 +331,7 @@
 "label": "Vale of Glamorgan FOI page (no disclosure log published)",
 "page_url": "https://www.valeofglamorgan.gov.uk/en/our_council/freedom_of_information/Requests-for-Information.aspx",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:55:30Z",
 "matches": [],
 "note": ""
@@ -342,7 +342,7 @@
 "label": "GOV.WALES search: Llandough",
 "page_url": "https://www.gov.wales/search?global_keywords=Llandough",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -353,7 +353,7 @@
 "label": "Welsh Government FOI responses index",
 "page_url": "https://www.gov.wales/about/open-government/freedom-of-information/responses",
 "status": "absent",
-"checked": "2026-11-08T02:12:43Z",
+"checked": "2026-11-08T05:16:24Z",
 "first_checked": "2026-10-29T22:27:50Z",
 "matches": [],
 "note": ""
@@ -378,7 +378,7 @@
 "checked": null,
 "first_checked": null,
 "matches": [],
-"note": "live bot-check page; ia 20261023074028"
+"note": "re-check pending (first reading was a bot-check page)"
 },
 {
 "id": "9af465a7",
