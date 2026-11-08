@@ -61,3 +61,5 @@ details.tracked a{color:var(--fg)}
 .abs{margin:1.2rem 0;padding:.8rem;border:1px solid var(--line);background:var(--panel)}.abs h2{font-size:1.05rem;margin:0 0 .4rem}
 .abs-l{list-style:none;margin:0;padding:0}.abs-l li{padding:.4rem 0;border-top:1px solid var(--line);overflow-wrap:anywhere;font-size:.92rem}
 .abs-l a{color:var(--fg)}.abs-l .tag{font-size:.72rem;margin-right:.3rem}
+/* 8 Nov 2026 (v3.1.1): the Records table under Live record checks is ~405 px wide; at 390 px its last column was cut off. Scroll tables inside their box. */
+details.tracked table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
