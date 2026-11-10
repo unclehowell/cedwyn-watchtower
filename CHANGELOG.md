@@ -2,8 +2,8 @@
 
 ### Added
 - Judicial citation register for BP Properties Ltd v Buckler [1987] EWCA Civ 2, searched by case-name, neutral-citation and reported-citation variants rather than only property-name matches.
-- Three primary-text-verified later judgments: Colin Dawson Windows Ltd [2005] EWCA Civ 9 (paras 33, 38–40); Totton and Eling Town Council v Caunter [2008] EWHC 3630 (Ch) (paras 17–20); and Smith v Molyneaux [2016] UKPC 35 (paras 28–30).
-- Added the three later judgment URLs to the weekly Wayback target feed. First captures are pending the next archive-worker cycle.
+- Four primary-text-verified later judgments: Colin Dawson Windows Ltd [2005] EWCA Civ 9 (paras 33, 38–40); Totton and Eling Town Council v Caunter [2008] EWHC 3630 (Ch) (paras 17–20); Smart v London Borough of Lambeth [2013] EWCA Civ 1375 (paras 34–36); and Smith v Molyneaux [2016] UKPC 35 (paras 28–30).
+- Added the five later judgment and citator URLs to the weekly Wayback target feed. First captures are pending the next archive-worker cycle.
 - Published machine-readable citation data at public/data/case-citations.json.
 
 ### Corrected
