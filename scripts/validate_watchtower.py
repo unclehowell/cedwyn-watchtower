@@ -23,6 +23,7 @@ class WatchtowerHTML(HTMLParser):
         self.local_ids: set[str] = set()
         self.duplicate_ids: list[str] = []
         self.wayback_heading = False
+        self.text: list[str] = []
 
     def handle_starttag(self, tag, attrs):
         values = dict(attrs)
@@ -37,6 +38,9 @@ class WatchtowerHTML(HTMLParser):
             self.citation_data_link = True
         if element_id == "wayback":
             self.wayback_heading = True
+
+    def handle_data(self, data):
+        self.text.append(data)
 
 
 def require(condition: bool, message: str) -> None:
@@ -87,17 +91,35 @@ def main() -> int:
     require(set(target_urls).issubset(set(order)),
             "One or more target URLs are missing from processing order.")
 
+    allowed = set(citations.get("method", {}).get("treatment_classifications", []))
+    for item in judgments:
+        classes = item.get("treatment_class")
+        require(isinstance(classes, list) and classes and set(classes) <= allowed,
+                f"Treatment class missing or not in the method list: {item.get('id')}")
+
     exclusions = citations.get("verification_exclusions", [])
-    require(
-        not any(item.get("neutral_citation") == "[2024] UKUT 14 (LC)"
-                for item in judgments),
-        "Brown v Ridley is an exclusion, not a verified Buckler citation."
-    )
-    require(
-        any(item.get("neutral_citation") == "[2024] UKUT 14 (LC)"
-            for item in exclusions),
-        "The Brown v Ridley exclusion note is missing."
-    )
+    judged = {item.get("neutral_citation") for item in judgments}
+    for item in exclusions:
+        require(item.get("neutral_citation") not in judged,
+                f"A case cannot be both cited and excluded: {item.get('neutral_citation')}")
+        # An exclusion must rest on the full official text searched for every
+        # citation variant (case name alone under-recalls: see Brown v Ridley).
+        require(str(item.get("primary_text_checked", "")).startswith("https://"),
+                f"Exclusion lacks the official full-text URL that was searched: {item.get('neutral_citation')}")
+        require(set(item.get("variants_searched", [])) >= set(citations.get("method", {}).get("query_variants", [])),
+                f"Exclusion did not search every query variant: {item.get('neutral_citation')}")
+
+    # Regression: Brown v Ridley [2024] UKUT 14 (LC) cites Buckler in its table of
+    # authorities and at paras 154-155, where it distinguishes and limits it.
+    brown = [item for item in judgments if item.get("neutral_citation") == "[2024] UKUT 14 (LC)"]
+    require(len(brown) == 1, "Brown v Ridley [2024] UKUT 14 (LC) must be in the register.")
+    require({"distinguishes", "limits"} <= set(brown[0].get("treatment_class", [])),
+            "Brown v Ridley must be classified distinguishes / limits.")
+    require("154" in brown[0].get("pinpoint", "") and "155" in brown[0].get("pinpoint", ""),
+            "Brown v Ridley pinpoint must give paragraphs 154-155.")
+    variants = citations.get("method", {}).get("query_variants", [])
+    require("55 P. & C.R." in variants,
+            "Query variants must include the page-less report form '55 P. & C.R.'.")
 
     page = WatchtowerHTML()
     page.feed(html)
@@ -107,6 +129,10 @@ def main() -> int:
             "The page must link to data/case-citations.json.")
     require(page.wayback_heading,
             "The page must retain the Wayback target section.")
+    page_text = " ".join(page.text)
+    for item in judgments:
+        require(item["neutral_citation"] in page_text,
+                f"Register entry missing from the page: {item['neutral_citation']}")
     require(not page.duplicate_ids,
             f"Duplicate HTML IDs found: {page.duplicate_ids}")
 

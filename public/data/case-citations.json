@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "generated": "2026-11-10T20:08:00Z",
+  "version": "1.1.0",
+  "generated": "2026-11-10T21:30:00Z",
   "scope": "Later public judgments that expressly cite or discuss BP Properties Ltd v Buckler [1987] EWCA Civ 2, identified through case-name, neutral-citation and reported-citation variants.",
   "primary_case": {
     "title": "BP Properties Ltd v Buckler",
@@ -23,6 +23,25 @@
   },
   "judicial_citations": [
     {
+      "id": "good-challenger-2003-ewca-civ-1668",
+      "title": "Good Challenger Navegante SA v Metalexportimport SA",
+      "neutral_citation": "[2003] EWCA Civ 1668",
+      "judgment_date": "2003-11-24",
+      "court": "Court of Appeal (Civil Division)",
+      "jurisdiction": "England and Wales",
+      "pinpoint": "paragraph 106",
+      "treatment_class": [
+        "mentions"
+      ],
+      "treatment": "Mentions Buckler indirectly, on the separate point of extending time to enforce an old judgment.",
+      "detail": "At paragraph 106 the Court of Appeal quotes a passage from Duer v Frazer setting out principles that Evans-Lombe J derived from Dillon LJ's judgment in BP Properties Ltd v Buckler (cited there as [1987] EGLR 168) on when the court will extend time beyond six years to issue execution of a judgment. The point is enforcement of judgments, not adverse possession.",
+      "primary_url": "https://caselaw.nationalarchives.gov.uk/ewca/civ/2003/1668",
+      "primary_text_url": "https://caselaw.nationalarchives.gov.uk/ewca/civ/2003/1668/data.xml",
+      "authority_note": "A Court of Appeal decision in England and Wales. Buckler is reached only through a quoted first-instance passage and on the enforcement-of-judgments point.",
+      "watchtower_status": "Added to public/data/targets.json in this change; initial Wayback capture pending.",
+      "verified_on": "2026-11-10"
+    },
+    {
       "id": "colin-dawson-2005-ewca-civ-9",
       "title": "Colin Dawson Windows Ltd v Borough Council of King's Lynn & West Norfolk & Anor",
       "neutral_citation": "[2005] EWCA Civ 9",
@@ -34,6 +53,85 @@
       "detail": "At paragraph 33 the Court of Appeal sets out the Buckler facts and quotes Dillon LJ. At paragraph 39 it distinguishes Buckler as an express-licence case while considering permission on the facts before it from the parties' negotiations. At paragraph 40 it records that the submission that Pye v Graham had implicitly overruled Buckler was withdrawn.",
       "primary_url": "https://www.bailii.org/ew/cases/EWCA/Civ/2005/9.html",
       "authority_note": "A later England and Wales Court of Appeal decision. Its treatment is a discussion and distinction, not a holding that Buckler was overruled.",
+      "watchtower_status": "Added to public/data/targets.json in this change; initial Wayback capture pending.",
+      "verified_on": "2026-11-10",
+      "treatment_class": [
+        "distinguishes"
+      ]
+    },
+    {
+      "id": "clowes-walters-2005-ewhc-669",
+      "title": "Clowes Developments (UK) Ltd v Walters & Ors",
+      "neutral_citation": "[2005] EWHC 669 (Ch)",
+      "judgment_date": "2005-04-20",
+      "court": "High Court of Justice, Chancery Division",
+      "jurisdiction": "England and Wales",
+      "pinpoint": "paragraphs 42 and 44–45",
+      "treatment_class": [
+        "applies"
+      ],
+      "treatment": "Treats Buckler as surviving Pye v Graham and applies its unilateral-permission reasoning to the licence facts before the court.",
+      "detail": "At paragraph 42 the judge notes that Buckler survives Pye (citing Colin Dawson Windows at paragraph 40) and that any implied permission would have been effective to make later possession permissive. At paragraphs 44–45 he sets out the Court of Appeal's holding and Dillon LJ's statement that possession is not adverse if it can be referred to a lawful title, and applies that reasoning to the facts before him.",
+      "primary_url": "https://caselaw.nationalarchives.gov.uk/ewhc/ch/2005/669",
+      "primary_text_url": "https://caselaw.nationalarchives.gov.uk/ewhc/ch/2005/669/data.xml",
+      "authority_note": "A High Court decision in England and Wales; first-instance application of the Court of Appeal authority.",
+      "watchtower_status": "Added to public/data/targets.json in this change; initial Wayback capture pending.",
+      "verified_on": "2026-11-10"
+    },
+    {
+      "id": "batsford-taylor-2005-ewca-civ-489",
+      "title": "Batsford Estates (1983) Co Ltd v Taylor & Anor",
+      "neutral_citation": "[2005] EWCA Civ 489",
+      "judgment_date": "2005-04-29",
+      "court": "Court of Appeal (Civil Division)",
+      "jurisdiction": "England and Wales",
+      "pinpoint": "paragraph 22",
+      "treatment_class": [
+        "mentions"
+      ],
+      "treatment": "Mentions Buckler in recounting how Colin Dawson Windows dealt with implied permission.",
+      "detail": "At paragraph 22 the Court of Appeal records that, in Colin Dawson Windows, Rix LJ read extensively from Dillon LJ's judgment in BP Properties Limited v Buckler before turning to the test for inferring permission from an overt act or demonstrable circumstances.",
+      "primary_url": "https://caselaw.nationalarchives.gov.uk/ewca/civ/2005/489",
+      "primary_text_url": "https://caselaw.nationalarchives.gov.uk/ewca/civ/2005/489/data.xml",
+      "authority_note": "A Court of Appeal decision in England and Wales. The reference is a passing account of an earlier decision, not a fresh analysis of Buckler.",
+      "watchtower_status": "Added to public/data/targets.json in this change; initial Wayback capture pending.",
+      "verified_on": "2026-11-10"
+    },
+    {
+      "id": "odey-barber-2006-ewhc-3109",
+      "title": "Odey & Ors v Barber",
+      "neutral_citation": "[2006] EWHC 3109 (Ch)",
+      "judgment_date": "2006-11-29",
+      "court": "High Court of Justice, Chancery Division",
+      "jurisdiction": "England and Wales",
+      "pinpoint": "paragraphs 72–73 (conclusion at 74–75)",
+      "treatment_class": [
+        "cites"
+      ],
+      "treatment": "Cites Buckler as the authority relied on by earlier decisions and a leading text for the view that unsolicited permission defeats a prescriptive easement, and adopts that view.",
+      "detail": "At paragraphs 72–73 the judge sets out how O'Mara and Gray and Gray derive support from BP Properties v Buckler (1988) 55 P & CR 337 for the proposition that an unsolicited grant of permission prevents an easement arising. At paragraphs 74–75 he finds that reasoning compelling and holds that an unsought permission prevented time running for a right of way by prescription.",
+      "primary_url": "https://caselaw.nationalarchives.gov.uk/ewhc/ch/2006/3109",
+      "primary_text_url": "https://caselaw.nationalarchives.gov.uk/ewhc/ch/2006/3109/data.xml",
+      "authority_note": "A High Court decision in England and Wales, carrying the Buckler principle across from adverse possession of land to prescriptive easements.",
+      "watchtower_status": "Added to public/data/targets.json in this change; initial Wayback capture pending.",
+      "verified_on": "2026-11-10"
+    },
+    {
+      "id": "roberts-swangrove-2007-ewhc-513",
+      "title": "Roberts v Swangrove Estates Ltd & Anor",
+      "neutral_citation": "[2007] EWHC 513 (Ch)",
+      "judgment_date": "2007-03-14",
+      "court": "High Court of Justice, Chancery Division",
+      "jurisdiction": "England and Wales",
+      "pinpoint": "paragraph 83",
+      "treatment_class": [
+        "applies"
+      ],
+      "treatment": "Accepts an argument relying on Buckler that possession referable to a lawful title is not adverse, even if the occupier does not know of that title.",
+      "detail": "At paragraph 83 a party relies on Hughes v Griffin and BP Properties v Buckler [1987] 2 EGLR 168. The judge records Dillon LJ's statement that it does not matter that the person in possession did not know the possession was lawful, and accepts the argument.",
+      "primary_url": "https://caselaw.nationalarchives.gov.uk/ewhc/ch/2007/513",
+      "primary_text_url": "https://caselaw.nationalarchives.gov.uk/ewhc/ch/2007/513/data.xml",
+      "authority_note": "A High Court decision in England and Wales.",
       "watchtower_status": "Added to public/data/targets.json in this change; initial Wayback capture pending.",
       "verified_on": "2026-11-10"
     },
@@ -50,7 +148,10 @@
       "primary_url": "https://www.bailii.org/ew/cases/EWHC/Ch/2008/3630.html",
       "authority_note": "A High Court decision in England and Wales; read alongside the Court of Appeal authorities and the facts of the case.",
       "watchtower_status": "Added to public/data/targets.json in this change; initial Wayback capture pending.",
-      "verified_on": "2026-11-10"
+      "verified_on": "2026-11-10",
+      "treatment_class": [
+        "cites"
+      ]
     },
     {
       "id": "smart-lambeth-2013-ewca-civ-1375",
@@ -67,7 +168,10 @@
       "citator_url": "https://zoomlaw.co.uk/2013EWCACiv1375.html",
       "authority_note": "A later England and Wales Court of Appeal decision. It expressly cites Buckler and explains its place in the wider permission and implied-consent authorities.",
       "watchtower_status": "Added to public/data/targets.json in this change; initial Wayback capture pending.",
-      "verified_on": "2026-11-10"
+      "verified_on": "2026-11-10",
+      "treatment_class": [
+        "applies"
+      ]
     },
     {
       "id": "smith-molyneaux-2016-ukpc-35",
@@ -83,20 +187,52 @@
       "alternative_text_url": "https://www.bailii.org/cgi-bin/find_by_citation.cgi?citation=%5B2016%5D+UKPC+35",
       "authority_note": "A Privy Council decision arising from the British Virgin Islands. It is important comparative/persuasive material for England and Wales, not a later English Court of Appeal decision.",
       "watchtower_status": "Added to public/data/targets.json in this change; initial Wayback capture pending.",
-      "verified_on": "2026-11-10"
-    }
-  ],
-  "verification_exclusions": [
+      "verified_on": "2026-11-10",
+      "treatment_class": [
+        "applies"
+      ]
+    },
     {
+      "id": "brown-ridley-2024-ukut-14-lc",
       "title": "Brown v Ridley & Anor",
       "neutral_citation": "[2024] UKUT 14 (LC)",
       "judgment_date": "2024-01-23",
-      "status": "Excluded — no Buckler citation verified",
-      "reason": "A targeted full-text search of the published judgment returned no occurrence of “Buckler”. It is not included in the count of later decisions citing BP Properties Ltd v Buckler. A previous preliminary summary incorrectly described it as a citation; that description is corrected here.",
-      "primary_url": "https://www.bailii.org/uk/cases/UKUT/LC/2024/14.html",
-      "checked_on": "2026-11-10"
+      "court": "Upper Tribunal (Lands Chamber)",
+      "jurisdiction": "England and Wales",
+      "pinpoint": "table of authorities; paragraphs 154–155",
+      "treatment_class": [
+        "distinguishes",
+        "limits"
+      ],
+      "treatment": "Distinguishes Buckler as too far removed from the issue before the Tribunal and limits it: the decision is not authority that a registered proprietor can always end adverse possession by a unilateral licence.",
+      "detail": "The judgment lists BP Properties Ltd v Buckler (1988) 55 P. & C.R. among its authorities. At paragraph 154 the Tribunal summarises the case. At paragraph 155 it holds: “BP Properties is not authority for the proposition that a registered proprietor can, in any case, put an end to adverse possession by the unilateral grant of a permission or licence to occupy the relevant land.” It notes that Dillon LJ (at page 346 of the report) left open the position where the occupier rejects the permission and asserts ownership, and that the case “does not provide clear and unqualified authority” for the point argued.",
+      "primary_url": "https://caselaw.nationalarchives.gov.uk/ukut/lc/2024/14",
+      "primary_text_url": "https://caselaw.nationalarchives.gov.uk/ukut/lc/2024/14/data.xml",
+      "authority_note": "An Upper Tribunal (Lands Chamber) decision in England and Wales. It binds the First-tier Tribunal but not the courts; its reading of Buckler is a limit on the principle, not a holding that Buckler was wrongly decided.",
+      "watchtower_status": "Added to public/data/targets.json in this change; initial Wayback capture pending.",
+      "verified_on": "2026-11-10"
+    },
+    {
+      "id": "kerridge-hook-2025-ukftt-1076-pc",
+      "title": "Kerridge v Hook",
+      "neutral_citation": "[2025] UKFTT 1076 (PC)",
+      "judgment_date": "2025-08-04",
+      "court": "First-tier Tribunal (Property Chamber)",
+      "jurisdiction": "England and Wales",
+      "pinpoint": "paragraph 33",
+      "treatment_class": [
+        "cites"
+      ],
+      "treatment": "Cites Buckler, through Markfield Investments v Evans, for the rule that adverse possession can end by the true owner's grant of a licence, even a unilateral one.",
+      "detail": "At paragraph 33 the Tribunal quotes Simon Brown LJ in Markfield Investments v Evans [2001] 1 WLR 1321, listing the ways adverse possession may cease, including “the true owner's grant of a tenancy or licence to the occupier (even a unilateral licence: see BP Properties Ltd v Buckler (1987) 55 P & CR 337)”.",
+      "primary_url": "https://caselaw.nationalarchives.gov.uk/ukftt/pc/2025/1076",
+      "primary_text_url": "https://caselaw.nationalarchives.gov.uk/ukftt/pc/2025/1076/data.xml",
+      "authority_note": "A First-tier Tribunal decision; it binds no other court or tribunal.",
+      "watchtower_status": "Added to public/data/targets.json in this change; initial Wayback capture pending.",
+      "verified_on": "2026-11-10"
     }
   ],
+  "verification_exclusions": [],
   "method": {
     "primary_text_required": true,
     "pinpoint_required": true,
@@ -114,8 +250,24 @@
       "BP v Buckler",
       "Buckler [1987] EWCA Civ 2",
       "(1988) 55 P&CR 337",
-      "[1987] 2 EGLR 168"
+      "[1987] 2 EGLR 168",
+      "55 P. & C.R.",
+      "55 P & CR 337",
+      "[1987] EGLR 168"
     ],
-    "notes": "Do not count search snippets, duplicate mirrors or property-name matches as judicial citations unless the underlying judgment or publication has been checked. State each decision's jurisdiction and authority separately. The Watchtower static page and Wayback worker re-archive known URLs but do not automatically search all newly issued judgments; discovery of new cases requires a fresh search."
-  }
+    "notes": "Do not count search snippets, duplicate mirrors or property-name matches as judicial citations unless the underlying judgment or publication has been checked. State each decision's jurisdiction and authority separately. The Watchtower static page and Wayback worker re-archive known URLs but do not automatically search all newly issued judgments; discovery of new cases requires a fresh search.",
+    "exclusion_rule": "A candidate may be excluded only after its full official text (for example the Find Case Law data.xml) has been searched for every query variant, including volume-less, page-less and spacing forms of the reported citations; the checked text URL and variants are recorded with the exclusion.",
+    "sources_checked": [
+      "Find Case Law full-text search (caselaw.nationalarchives.gov.uk), 10 Nov 2026: 11 judgments matched the case name and report citation; each was read in its numbered paragraphs."
+    ]
+  },
+  "corrections": [
+    {
+      "date": "2026-11-10",
+      "neutral_citation": "[2024] UKUT 14 (LC)",
+      "title": "Brown v Ridley & Anor",
+      "correction": "An earlier draft of this register excluded Brown v Ridley after a text search of a mirror copy returned no match for “Buckler”. The official Find Case Law text lists BP Properties Ltd v Buckler among its authorities and discusses it at paragraphs 154–155. It is now included, classified as distinguishes / limits.",
+      "primary_text_url": "https://caselaw.nationalarchives.gov.uk/ukut/lc/2024/14/data.xml"
+    }
+  ]
 }
