@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated": "2026-11-10T20:05:00Z",
+  "generated": "2026-11-10T20:08:00Z",
   "scope": "Later public judgments that expressly cite or discuss BP Properties Ltd v Buckler [1987] EWCA Civ 2, identified through case-name, neutral-citation and reported-citation variants.",
   "primary_case": {
     "title": "BP Properties Ltd v Buckler",
@@ -116,6 +116,6 @@
       "(1988) 55 P&CR 337",
       "[1987] 2 EGLR 168"
     ],
-    "notes": "Do not count search snippets, duplicate mirrors or property-name matches as judicial citations unless the underlying judgment or publication has been checked. State each decision's jurisdiction and authority separately."
+    "notes": "Do not count search snippets, duplicate mirrors or property-name matches as judicial citations unless the underlying judgment or publication has been checked. State each decision's jurisdiction and authority separately. The Watchtower static page and Wayback worker re-archive known URLs but do not automatically search all newly issued judgments; discovery of new cases requires a fresh search."
   }
 }
