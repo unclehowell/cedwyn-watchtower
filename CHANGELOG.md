@@ -1,15 +1,15 @@
+# Changelog
+
 ## [3.3.0] - 2026-11-10
 
 ### Added
 - Judicial citation register for BP Properties Ltd v Buckler [1987] EWCA Civ 2, searched by case-name, neutral-citation and reported-citation variants rather than only property-name matches.
-- Four primary-text-verified later judgments: Colin Dawson Windows Ltd [2005] EWCA Civ 9 (paras 33, 38–40); Totton and Eling Town Council v Caunter [2008] EWHC 3630 (Ch) (paras 17–20); Smart v London Borough of Lambeth [2013] EWCA Civ 1375 (paras 34–36); and Smith v Molyneaux [2016] UKPC 35 (paras 28–30).
-- Added the five later judgment and citator URLs to the weekly Wayback target feed. First captures are pending the next archive-worker cycle.
-- Published machine-readable citation data at public/data/case-citations.json.
+- Eleven primary-text-verified later judgments, each with pinpoint paragraphs and a treatment class: Good Challenger Navegante [2003] EWCA Civ 1668 (para 106, mentions); Colin Dawson Windows Ltd [2005] EWCA Civ 9 (paras 33, 38–40, distinguishes); Clowes Developments v Walters [2005] EWHC 669 (Ch) (paras 42, 44–45, applies); Batsford Estates v Taylor [2005] EWCA Civ 489 (para 22, mentions); Odey v Barber [2006] EWHC 3109 (Ch) (paras 72–75, cites); Roberts v Swangrove Estates [2007] EWHC 513 (Ch) (para 83, applies); Totton and Eling Town Council v Caunter [2008] EWHC 3630 (Ch) (paras 17–20, cites); Smart v London Borough of Lambeth [2013] EWCA Civ 1375 (paras 34–36, applies); Smith v Molyneaux [2016] UKPC 35 (paras 28–30, applies); Brown v Ridley [2024] UKUT 14 (LC) (paras 154–155, distinguishes / limits); and Kerridge v Hook [2025] UKFTT 1076 (PC) (para 33, cites).
+- Added the twelve later judgment and case-text URLs to the weekly Wayback target feed. First captures are pending the next archive-worker cycle.
+- Published machine-readable citation data at public/data/case-citations.json, with `scripts/validate_watchtower.py` run on every pull request.
 
 ### Corrected
-- Excluded Brown v Ridley [2024] UKUT 14 (LC): the published judgment text contains no occurrence of “Buckler”, so it is not a citation to the 1987 case.
-
-# Changelog
+- Brown v Ridley [2024] UKUT 14 (LC) is included, not excluded. An earlier draft of this release excluded it after a mirror search found no match; the official Find Case Law text lists the case among its authorities and holds at paragraph 155 that it "is not authority for the proposition that a registered proprietor can, in any case, put an end to adverse possession by the unilateral grant of a permission or licence to occupy the relevant land". The validator now requires an exclusion to record the full official text searched and every citation variant, and checks Brown v Ridley as a regression case.
 
 ## [3.2.1] - 2026-11-03
 
