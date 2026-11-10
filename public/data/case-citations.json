@@ -1,0 +1,104 @@
+{
+  "version": "1.0.0",
+  "generated": "2026-11-10T19:58:00Z",
+  "scope": "Later public judgments that expressly cite or discuss BP Properties Ltd v Buckler [1987] EWCA Civ 2, identified through case-name, neutral-citation and reported-citation variants.",
+  "primary_case": {
+    "title": "BP Properties Ltd v Buckler",
+    "neutral_citation": "[1987] EWCA Civ 2",
+    "judgment_date": "1987-07-31",
+    "reported_citations": [
+      "(1988) 55 P&CR 337",
+      "[1987] 2 EGLR 168"
+    ],
+    "citation_variants": [
+      "BP Properties Ltd v Buckler",
+      "BP Properties v Buckler",
+      "BP v Buckler",
+      "Buckler [1987] EWCA Civ 2",
+      "(1988) 55 P&CR 337",
+      "[1987] 2 EGLR 168"
+    ],
+    "primary_url": "https://www.bailii.org/ew/cases/EWCA/Civ/1987/2.html",
+    "catalogue_url": "https://bucklerfamily.estate/research/evidence/ev-0080-bp-properties-v-buckler-judgment/"
+  },
+  "judicial_citations": [
+    {
+      "id": "colin-dawson-2005-ewca-civ-9",
+      "title": "Colin Dawson Windows Ltd v Borough Council of King's Lynn & West Norfolk & Anor",
+      "neutral_citation": "[2005] EWCA Civ 9",
+      "judgment_date": "2005-01-20",
+      "court": "Court of Appeal (Civil Division)",
+      "jurisdiction": "England and Wales",
+      "pinpoint": "paragraphs 33 and 38–40",
+      "treatment": "Cites and distinguishes the express-licence facts in Buckler; considers the related principle of permission during negotiations.",
+      "detail": "At paragraph 33 the Court of Appeal sets out the Buckler facts and quotes Dillon LJ. At paragraph 39 it distinguishes Buckler as an express-licence case while considering permission on the facts before it from the parties' negotiations. At paragraph 40 it records that the submission that Pye v Graham had implicitly overruled Buckler was withdrawn.",
+      "primary_url": "https://www.bailii.org/ew/cases/EWCA/Civ/2005/9.html",
+      "authority_note": "A later England and Wales Court of Appeal decision. Its treatment is a discussion and distinction, not a holding that Buckler was overruled.",
+      "watchtower_status": "Added to public/data/targets.json in this change; initial Wayback capture pending.",
+      "verified_on": "2026-11-10"
+    },
+    {
+      "id": "totton-eling-caunter-2008-ewhc-3630",
+      "title": "Totton and Eling Town Council v Caunter & Anor",
+      "neutral_citation": "[2008] EWHC 3630 (Ch)",
+      "judgment_date": "2008-06-11",
+      "court": "High Court of Justice, Chancery Division",
+      "jurisdiction": "England and Wales",
+      "pinpoint": "paragraphs 17–20",
+      "treatment": "Quotes and explains Buckler as a central authority on a unilateral licence affecting adverse possession.",
+      "detail": "The judgment identifies BP Properties v Buckler at paragraph 17, then sets out the letter, the absence of express acceptance or rejection, and Dillon LJ's reasoning in paragraphs 17–20.",
+      "primary_url": "https://www.bailii.org/ew/cases/EWHC/Ch/2008/3630.html",
+      "authority_note": "A High Court decision in England and Wales; read alongside the Court of Appeal authorities and the facts of the case.",
+      "watchtower_status": "Added to public/data/targets.json in this change; initial Wayback capture pending.",
+      "verified_on": "2026-11-10"
+    },
+    {
+      "id": "smith-molyneaux-2016-ukpc-35",
+      "title": "Smith (Personal Representative of Hugh Smith (Deceased)) and others v Molyneaux",
+      "neutral_citation": "[2016] UKPC 35",
+      "judgment_date": "2016-11-21",
+      "court": "Judicial Committee of the Privy Council",
+      "jurisdiction": "British Virgin Islands",
+      "pinpoint": "paragraphs 28–30",
+      "treatment": "The Board expressly draws attention to Buckler and discusses unilateral permission without acceptance in the BVI statutory context.",
+      "detail": "At paragraph 28 the Board itself drew the parties' attention to BP Properties Ltd v Buckler, explaining that permission could be given unilaterally and did not require acceptance by the licensee. At paragraph 29 the parties accepted that the same principle applied under section 135(1) of the British Virgin Islands Registered Land Act; paragraph 30 identifies the Court of Appeal's error in requiring acknowledgment by the occupier.",
+      "primary_url": "https://jcpc.uk/uploads/jcpc_2013_0064_judgment_30aad06984.pdf",
+      "alternative_text_url": "https://www.bailii.org/cgi-bin/find_by_citation.cgi?citation=%5B2016%5D+UKPC+35",
+      "authority_note": "A Privy Council decision arising from the British Virgin Islands. It is important comparative/persuasive material for England and Wales, not a later English Court of Appeal decision.",
+      "watchtower_status": "Added to public/data/targets.json in this change; initial Wayback capture pending.",
+      "verified_on": "2026-11-10"
+    }
+  ],
+  "verification_exclusions": [
+    {
+      "title": "Brown v Ridley & Anor",
+      "neutral_citation": "[2024] UKUT 14 (LC)",
+      "judgment_date": "2024-01-23",
+      "status": "Excluded — no Buckler citation verified",
+      "reason": "A targeted full-text search of the published judgment returned no occurrence of “Buckler”. It is not included in the count of later decisions citing BP Properties Ltd v Buckler. A previous preliminary summary incorrectly described it as a citation; that description is corrected here.",
+      "primary_url": "https://www.bailii.org/uk/cases/UKUT/LC/2024/14.html",
+      "checked_on": "2026-11-10"
+    }
+  ],
+  "method": {
+    "primary_text_required": true,
+    "pinpoint_required": true,
+    "treatment_classifications": [
+      "cites",
+      "follows",
+      "applies",
+      "distinguishes",
+      "limits",
+      "mentions"
+    ],
+    "query_variants": [
+      "BP Properties Ltd v Buckler",
+      "BP Properties v Buckler",
+      "BP v Buckler",
+      "Buckler [1987] EWCA Civ 2",
+      "(1988) 55 P&CR 337",
+      "[1987] 2 EGLR 168"
+    ],
+    "notes": "Do not count search snippets, duplicate mirrors or property-name matches as judicial citations unless the underlying judgment or publication has been checked. State each decision's jurisdiction and authority separately."
+  }
+}
