@@ -8,7 +8,7 @@ Watchtower: dated changes to institutions' own web pages about Great House Farm 
   Museum Wales, Welsh Government / Cadw, Llandough Community Council, the Vale of Glamorgan Council, the National Library of
   Wales, the Church in Wales and others as they are found. Llandough near Cowbridge, Treoes and Llanmaes are different places
   and are excluded.
-- Method: outside-page discovery uses both property-name variants and legal-citation variants for BP Properties Ltd v Buckler [1987] EWCA Civ 2. The judicial citation register is separately checked against primary judgment texts, with pinpoint paragraphs and treatment classifications. Every Wayback capture of each monitored page is listed (CDX). Distinct captures are read and the passages about the farm or the
+- Method: outside-page discovery uses property-name variants; additional known legal-citation sources for BP Properties Ltd v Buckler [1987] EWCA Civ 2 are added through a separate curated citation register. The judicial citation register is separately checked against primary judgment texts, with pinpoint paragraphs and treatment classifications. The static register is not a comprehensive automatic legal citator; new-case discovery requires a fresh search, while known URLs are re-archived weekly. Every Wayback capture of each monitored page is listed (CDX). Distinct captures are read and the passages about the farm or the
   site are compared capture to capture, narrowing each change down to two adjacent captures. Each change is one dot: page
   appeared, text added, text removed, text changed, or page gone, with links to the before and after captures.
 - Landing page: one scatter graph (x = date, y = institution) and the full list of changes underneath.
