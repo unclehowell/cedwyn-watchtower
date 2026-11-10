@@ -1,6 +1,6 @@
 {
   "version": "3.1.2",
-  "generated": "2026-11-10T19:58:00Z",
+  "generated": "2026-11-10T20:05:00Z",
   "about": "Outside pages that cite the name variants for Great House Farm (Tŷ Mawr), Llandough, or cite the BP Properties Ltd v Buckler [1987] EWCA Civ 2 judgment and its reported-citation variants. Each page is saved to the Internet Archive (Wayback Machine) and saved again every week.",
   "weekly": {
     "worker": "bfe-watchtower-archive",
@@ -8,12 +8,12 @@
     "schedule": "Sundays from 03:15 UTC, one page at a time, runs back to back until the list is done"
   },
   "counts": {
-    "targets": 280,
+    "targets": 282,
     "new_2026_11_02": 61,
     "own_pages": 15,
     "saved": 108,
     "earlier_capture_only": 10,
-    "case_citations_added_2026_11_10": 3
+    "case_citations_added_2026_11_10": 5
   },
   "own": [
     {
@@ -4261,6 +4261,32 @@
       "found_by": "case citation research, 10 Nov 2026",
       "ambiguous": false,
       "wb": null
+    },
+    {
+      "u": "https://www.bailii.org/ew/cases/EWCA/Civ/2013/1375.html",
+      "host": "www.bailii.org",
+      "title": "Smart v London Borough of Lambeth [2013] EWCA Civ 1375",
+      "terms": [
+        "BP Properties Ltd v Buckler",
+        "(1988) 55 P&CR 337"
+      ],
+      "first_seen": "2026-11-10T20:05:00Z",
+      "found_by": "case citation research, 10 Nov 2026",
+      "ambiguous": false,
+      "wb": null
+    },
+    {
+      "u": "https://zoomlaw.co.uk/2013EWCACiv1375.html",
+      "host": "zoomlaw.co.uk",
+      "title": "Smart v London Borough of Lambeth [2013] EWCA Civ 1375 — case text and citing authorities",
+      "terms": [
+        "BP Properties Ltd v Buckler",
+        "(1988) 55 P&CR 337"
+      ],
+      "first_seen": "2026-11-10T20:05:00Z",
+      "found_by": "case citation research, 10 Nov 2026",
+      "ambiguous": false,
+      "wb": null
     }
   ],
   "order": [
@@ -4558,7 +4584,9 @@
     "https://api.parliament.uk/historic-hansard/commons/1962/dec/07/leasehold-bill",
     "https://www.bailii.org/ew/cases/EWCA/Civ/2005/9.html",
     "https://www.bailii.org/ew/cases/EWHC/Ch/2008/3630.html",
-    "https://jcpc.uk/uploads/jcpc_2013_0064_judgment_30aad06984.pdf"
+    "https://jcpc.uk/uploads/jcpc_2013_0064_judgment_30aad06984.pdf",
+    "https://www.bailii.org/ew/cases/EWCA/Civ/2013/1375.html",
+    "https://zoomlaw.co.uk/2013EWCACiv1375.html"
   ],
   "capture_link": "https://web.archive.org/web/<ts>/<u>"
 }
