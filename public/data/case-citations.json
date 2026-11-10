@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated": "2026-11-10T19:58:00Z",
+  "generated": "2026-11-10T20:05:00Z",
   "scope": "Later public judgments that expressly cite or discuss BP Properties Ltd v Buckler [1987] EWCA Civ 2, identified through case-name, neutral-citation and reported-citation variants.",
   "primary_case": {
     "title": "BP Properties Ltd v Buckler",
@@ -49,6 +49,23 @@
       "detail": "The judgment identifies BP Properties v Buckler at paragraph 17, then sets out the letter, the absence of express acceptance or rejection, and Dillon LJ's reasoning in paragraphs 17–20.",
       "primary_url": "https://www.bailii.org/ew/cases/EWHC/Ch/2008/3630.html",
       "authority_note": "A High Court decision in England and Wales; read alongside the Court of Appeal authorities and the facts of the case.",
+      "watchtower_status": "Added to public/data/targets.json in this change; initial Wayback capture pending.",
+      "verified_on": "2026-11-10"
+    },
+    {
+      "id": "smart-lambeth-2013-ewca-civ-1375",
+      "title": "Smart v London Borough of Lambeth",
+      "neutral_citation": "[2013] EWCA Civ 1375",
+      "judgment_date": "2013-11-07",
+      "court": "Court of Appeal (Civil Division)",
+      "jurisdiction": "England and Wales",
+      "pinpoint": "paragraphs 34–36",
+      "treatment": "Expressly cites Buckler and applies its treatment of unilateral permission alongside the objective test for implied consent.",
+      "detail": "At paragraph 34 the Court of Appeal cites BP Properties v Buckler (1988) 55 P & CR 337 and explains that permission need not be contractually binding. Paragraph 35 states the requirement for an overt act or demonstrable circumstance from which permission may be inferred, judged by what a reasonable person would appreciate. Paragraph 36 discusses permission during negotiations, citing Colin Dawson Windows Ltd v King's Lynn.",
+      "primary_url": "https://www.bailii.org/ew/cases/EWCA/Civ/2013/1375.html",
+      "alternative_text_url": "https://casenode.ai/case/uk.ewca.civ.2013.1375/smart-v-london-borough-of-lambeth-2013-ewca-civ-1375",
+      "citator_url": "https://zoomlaw.co.uk/2013EWCACiv1375.html",
+      "authority_note": "A later England and Wales Court of Appeal decision. It expressly cites Buckler and explains its place in the wider permission and implied-consent authorities.",
       "watchtower_status": "Added to public/data/targets.json in this change; initial Wayback capture pending.",
       "verified_on": "2026-11-10"
     },
