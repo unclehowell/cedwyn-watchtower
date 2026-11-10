@@ -1,7 +1,7 @@
 {
   "version": "3.1.2",
   "generated": "2026-11-10T20:05:00Z",
-  "about": "Outside pages that cite the name variants for Great House Farm (Tŷ Mawr), Llandough, or cite the BP Properties Ltd v Buckler [1987] EWCA Civ 2 judgment and its reported-citation variants. Each page is saved to the Internet Archive (Wayback Machine) and saved again every week.",
+  "about": "Outside pages found through Great House Farm (Tŷ Mawr) and Llandough name searches, together with additional legal sources added through citation research for BP Properties Ltd v Buckler [1987] EWCA Civ 2. Listed URLs are saved to the Internet Archive (Wayback Machine) and saved again every week; this feed does not itself discover every newly issued judgment.",
   "weekly": {
     "worker": "bfe-watchtower-archive",
     "status": "/watchtower/api/wayback.json",
