@@ -1,3 +1,10 @@
+## Archive worker 1.0.8 — 18 Nov 2026
+
+- Removes the host-wide circuit breaker that marked every remaining URL from a host as skipped after only three unrelated 520/523 responses. The normal weekly pass now gives each URL one attempt, still at six-second pacing and in batches of 30; 429 still backs off for 15 minutes.
+- Adds a separate retry pass for each URL with no successful Wayback timestamp after the primary pass. The retry pass uses its own cursor, runs at the same pacing and limits, and makes only one additional attempt per URL in that ISO week.
+- Adds `?retry=1` to explicitly queue the current week's failed/skipped URLs. The normal weekly cycle automatically queues the same one-pass retry after the next primary cycle.
+- Preserves all existing KV status and cursor records, as well as the Durable Object namespace and alarm schedule.
+
 ## [3.4.1] - 2026-11-18
 
 ### Added
