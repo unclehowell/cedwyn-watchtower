@@ -26,12 +26,15 @@
   function checkClass(status) {
     return status === 'present' ? 'ok' : status === 'absent' ? 'absent' : 'pending';
   }
-  function targetStatus(item) {
+  function targetStatus(item, live) {
     var w = item && item.wb || {};
-    if (w.ts) return {label:'Wayback capture ' + dateLabel(w.ts.slice(0,4)+'-'+w.ts.slice(4,6)+'-'+w.ts.slice(6,8)) + (w.code ? '; latest attempt failed (' + w.code + ')' : ''),cls:w.code ? 'failed' : 'ok',url:'https://web.archive.org/web/' + w.ts + '/' + item.u};
-    if (w.code) return {label:'Save attempt failed (' + w.code + ')' + (item.prior ? '; earlier capture exists' : ''),cls:'failed',url:item.prior ? 'https://web.archive.org/web/' + item.prior + '/' + item.u : ''};
-    if (w.at) return {label:'Attempt recorded; no capture timestamp',cls:'pending',url:''};
-    return {label:'No capture result in this feed snapshot',cls:'pending',url:''};
+    var current = item && live && live.pages && live.pages[item.u] || {};
+    var ts = current.ts || w.ts || item.prior || '';
+    var code = current.code || w.code || '';
+    if (ts) return {label:(item.prior && !w.ts && !current.ts ? 'Earlier Wayback capture ' : 'Wayback capture ') + dateLabel(ts.slice(0,4)+'-'+ts.slice(4,6)+'-'+ts.slice(6,8)) + (code ? '; latest attempt failed (' + code + ')' : ''),cls:code ? 'failed' : 'ok',url:'https://web.archive.org/web/' + ts + '/' + item.u};
+    if (code) return {label:'Save attempt failed (' + code + ')',cls:'failed',url:''};
+    if (current.last_try || w.at) return {label:'Attempt recorded; no successful capture timestamp',cls:'pending',url:''};
+    return {label:'No capture result in the live or saved feed',cls:'pending',url:''};
   }
   function render(p, checks, targets, live) {
     var watch = (p.watch_checks || []).map(function (id) {
