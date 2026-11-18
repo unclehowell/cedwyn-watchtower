@@ -1,23 +1,13 @@
 # watchtower.bucklerfamily.estate
 
-Watchtower: dated changes to institutions' own web pages about Great House Farm (Tŷ Mawr), Llandough, from the Internet Archive
-(Wayback Machine).
+Watchtower: dated changes to public institutional pages, archive records and later legal citations relevant to Great House Farm (Tŷ Mawr), Llandough and the wider Cedwyn / Leckwith research area.
 
-- Pages tracked: institution pages that name Great House Farm, Tŷ Mawr, the Llandough monastic cemetery and its excavations
-  (1990, 1994), the Llandough Roman villa, BP v Buckler, or titles WA231076 / WA240304: Archwilio (HER), Coflein (RCAHMW),
-  Museum Wales, Welsh Government / Cadw, Llandough Community Council, the Vale of Glamorgan Council, the National Library of
-  Wales, the Church in Wales and others as they are found. Llandough near Cowbridge, Treoes and Llanmaes are different places
-  and are excluded.
-- Method: outside-page discovery uses property-name variants; additional known legal-citation sources for BP Properties Ltd v Buckler [1987] EWCA Civ 2 are added through a separate curated citation register. The judicial citation register is separately checked against primary judgment texts, with pinpoint paragraphs and treatment classifications. The static register is not a comprehensive automatic legal citator; new-case discovery requires a fresh search, while known URLs are re-archived weekly. Every Wayback capture of each monitored page is listed (CDX). Distinct captures are read and the passages about the farm or the
-  site are compared capture to capture, narrowing each change down to two adjacent captures. Each change is one dot: page
-  appeared, text added, text removed, text changed, or page gone, with links to the before and after captures.
-- Landing page: one scatter graph (x = date, y = institution) and the full list of changes underneath.
-- Release 3.0.1 adds keyboard-focus styling; data values unchanged. Data: `public/data/changes.json`. Re-checked daily at midday by `work/watchtower/v3/run_daily.py`.
-- Release 3.3.0 (10 Nov 2026): adds a primary-text-verified judicial citation register for eleven later decisions (2003 to 2025, from the Court of Appeal, High Court, Privy Council, Upper Tribunal and First-tier Tribunal), each with pinpoint paragraphs and a treatment class, and adds their source URLs to the weekly archive target feed. Brown v Ridley [2024] UKUT 14 (LC), first excluded in error, is included as distinguishes / limits. Data: `public/data/case-citations.json` and `public/data/targets.json`.
-- Release 3.1.0 (2 Nov 2026): every outside page that cites one of the farm's names is listed in `public/data/targets.json` and saved to the Wayback Machine; the Worker `bfe-watchtower-archive` (Durable Object alarm, Sundays from 03:15 UTC) saves each again every week and serves the status at `/watchtower/api/wayback.json`; `public/wayback.js` shows page, name cited, first seen, latest capture and weekly status.
-- Archive: the earlier "Raised & replies" layer (correspondence items) and the v2 page-change data are kept unpublished in
-  `archive/` (outside `public/`, so the site does not serve them).
-- Static site: Cloudflare Pages project bucklerfamily-watchtower, branch `watchtower`, output `public/`, no build step.
+- Pages tracked: property-name and case-citation discoveries, plus evidence-linked official pages for named land-chain entities, developers, public authorities, heritage bodies, archive custodians and broadcasters where an exact page has been verified. Similar place names are disambiguated; Llandough near Cowbridge, Treoes and Llanmaes are different places and excluded.
+- Party coverage: `public/data/parties.json` maps role classes, evidence anchors, absence/search checks and exact Wayback target URLs. It distinguishes litigants, land-chain companies, developers, later corporate successors, public authorities, heritage bodies, custodians and broadcasters. A party card is a research map, not a finding of legal liability or universal participation in litigation.
+- Method: outside-page discovery uses property-name variants, with a separate curated judicial-citation register. The judicial register is checked against primary judgment texts with pinpoint paragraphs and treatment classifications. It is not a comprehensive automatic legal citator. Known URLs are re-archived weekly; every capture and latest status is read from the Wayback feed and Worker status endpoint.
+- Wayback archive worker source: `worker/index.js`; it reads the canonical `unclehowell/cedwyn-watchtower` main-branch feed. Bindings are Durable Object `CLOCK` and KV `WB`; deployments must preserve both namespaces.
+- Release 3.4.0 (18 Nov 2026): ten official party/institution targets added; ADS Llandough archive landing page tracked separately from its associated PDF; party cards use live Worker capture/error status. Historical Vale planning file URLs, ITV-owned footage pages and a relevant Mountjoy archival record remain explicit gaps where not verified.
+- Static site: Cloudflare Pages project `bucklerfamily-watchtower`, output `public/`, no build command. Production source repository: `unclehowell/cedwyn-watchtower`, branch `main`.
 
 © Williams–Buckler family. All rights reserved. Licence: https://bucklerfamily.estate/licence/
 
