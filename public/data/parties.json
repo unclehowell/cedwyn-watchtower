@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "generated": "2026-11-18",
-  "note": "Evidence-linked coverage map. Roles are classifications for research, not findings of liability or universal legal-party status. Existing Watchtower checks are referenced by stable IDs; a search result or individual HER page is not treated as a dedicated institutional watch.",
+  "note": "Evidence-linked coverage map. Roles are research classifications, not findings of liability or universal legal-party status. A match in a generic search, an archive catalogue entry and a direct institutional page are different levels of coverage. A Wayback target is not a successful capture until its timestamp is returned by the live archive worker.",
   "status_values": [
     "partial",
     "research needed",
@@ -53,6 +53,11 @@
           "id": "WIKI-0017",
           "title": "Western Ground Rents Ltd research page",
           "url": "https://research.bucklerfamily.estate/western-ground-rents/"
+        },
+        {
+          "id": "D696",
+          "title": "Glamorgan Archives D696: Western Ground Rents Ltd records",
+          "url": "https://canfod.glamarchives.gov.uk/records/D696"
         }
       ],
       "watch_checks": [
@@ -63,7 +68,9 @@
         "44ae1428",
         "14de73b6"
       ],
-      "wayback_urls": [],
+      "wayback_urls": [
+        "https://canfod.glamarchives.gov.uk/records/D696"
+      ],
       "coverage_status": "partial",
       "next_action": "Resolve the failed Companies House filing-history URL and NLW search; consider a relevant official company-history or TNA record page after opening it."
     },
@@ -124,12 +131,20 @@
           "id": "EV-0330",
           "title": "Glamorgan Archives: Great House Farm | Cardiff Castle furniture",
           "url": "https://research.bucklerfamily.estate/evidence/ev-0330-glamorgan-archives-great-house-farm-llandough-cardiff-castle-furniture/"
+        },
+        {
+          "id": "NLW-BUTE-ESTATE",
+          "title": "Bute Estate Records — National Library of Wales Archives",
+          "url": "https://archives.library.wales/index.php/bute-estate-records"
         }
       ],
       "watch_checks": [
         "93cfaa9f"
       ],
-      "wayback_urls": [],
+      "wayback_urls": [
+        "https://archives.library.wales/index.php/bute-estate-records",
+        "https://archives.library.wales/index.php/glamorgan-manorial-estate"
+      ],
       "coverage_status": "partial",
       "next_action": "Review the Mount Stuart search result and NLW/Bute series correspondence separately; add only a direct archival page that has been opened and verified."
     },
@@ -164,14 +179,20 @@
           "id": "EV-0293",
           "title": "Llandough 1994 cemetery excavation",
           "url": "https://research.bucklerfamily.estate/evidence/ev-0293-llandough-1994-cemetery-excavation-her-ggat02272s-museum-wales-95-56h-burial-631/"
+        },
+        {
+          "id": "CH-00461464",
+          "title": "Companies House 00461464: Ideal Homes Wales Ltd / Persimmon Homes (Wales) Ltd company-name history",
+          "url": "https://find-and-update.company-information.service.gov.uk/company/00461464"
         }
       ],
       "watch_checks": [],
       "wayback_urls": [
-        "https://museum.wales/blog/1345/The-suffering-of-burial-631/"
+        "https://museum.wales/blog/1345/The-suffering-of-burial-631/",
+        "https://find-and-update.company-information.service.gov.uk/company/00461464"
       ],
-      "coverage_status": "research needed",
-      "next_action": "Verify the exact Vale planning-register pages for 89/01396/OUT and 92/00671/RES and add an official company/developer page if it exists."
+      "coverage_status": "partial",
+      "next_action": "Companies House 00461464 establishes the company-name sequence from Ideal Homes Wales Ltd to Persimmon Homes (Wales) Ltd; obtain the historic development/planning file for the Llandough site separately."
     },
     {
       "id": "persimmon",
@@ -184,12 +205,19 @@
           "id": "EV-0276",
           "title": "Press set: Ideal Homes / Persimmon and Churchview Close, 1994–1996",
           "url": "https://research.bucklerfamily.estate/evidence/ev-0276-churchview-close-llandough-ideal-homes-persimmon-1994-1996/"
+        },
+        {
+          "id": "CH-00461464",
+          "title": "Companies House 00461464: Persimmon Homes (Wales) Ltd company-name history",
+          "url": "https://find-and-update.company-information.service.gov.uk/company/00461464"
         }
       ],
       "watch_checks": [],
-      "wayback_urls": [],
-      "coverage_status": "research needed",
-      "next_action": "Check an official Persimmon corporate history or Companies House record and determine whether a relevant Llandough project page survives."
+      "wayback_urls": [
+        "https://find-and-update.company-information.service.gov.uk/company/00461464"
+      ],
+      "coverage_status": "partial",
+      "next_action": "Companies House 00461464 records the corporate name change; do not infer that this alone proves title, a site acquisition date or responsibility for the original Llandough development."
     },
     {
       "id": "hm-land-registry",
@@ -210,9 +238,11 @@
         }
       ],
       "watch_checks": [],
-      "wayback_urls": [],
-      "coverage_status": "no verified target",
-      "next_action": "Add and test the official HMLR organisation page and an appropriate public register/search endpoint; keep record-specific case correspondence separate."
+      "wayback_urls": [
+        "https://www.gov.uk/government/organisations/land-registry"
+      ],
+      "coverage_status": "partial",
+      "next_action": "Monitor the official organisation page for institutional changes; keep the register-specific WA231076 / WA240304 documents and HMLR correspondence as separate catalogue records."
     },
     {
       "id": "vale-planning",
@@ -264,10 +294,12 @@
         "34536845"
       ],
       "wayback_urls": [
-        "https://archwilio.org.uk/her/chi3/report/page.php?watprn=GGAT02038s"
+        "https://archwilio.org.uk/her/chi3/report/page.php?watprn=GGAT02038s",
+        "https://heneb.org.uk/",
+        "https://heneb.org.uk/historic-environment-records-her/"
       ],
       "coverage_status": "partial",
-      "next_action": "Add a verified Heneb institutional page separately from the existing Archwilio HER record URLs."
+      "next_action": "The official institutional homepage and HER service page are now monitored separately from Archwilio record GGAT02038s; add individual site records only when verified."
     },
     {
       "id": "historic-england",
@@ -317,9 +349,11 @@
         }
       ],
       "watch_checks": [],
-      "wayback_urls": [],
-      "coverage_status": "no verified target",
-      "next_action": "Establish the actual collection custodian and catalogue location for the Cardiff Castle furniture/Bute-series material before adding a page to the feed."
+      "wayback_urls": [
+        "https://www.cardiffcastle.com/explore/bute-family"
+      ],
+      "coverage_status": "partial",
+      "next_action": "The Bute-family page is contextual background only; identify the actual collection custodian and catalogue location for the Cardiff Castle furniture/Bute-series material before attributing any record to the Castle."
     },
     {
       "id": "itv-htv",
@@ -338,9 +372,11 @@
         "452dafa9",
         "6e452ee4"
       ],
-      "wayback_urls": [],
+      "wayback_urls": [
+        "https://gwylio-gwrando.llyfrgell.cymru/detail/507738"
+      ],
       "coverage_status": "partial",
-      "next_action": "Recheck NLW Watch and Listen item 507738 and search for a verified ITV archive catalogue page; keep the broadcaster's own pages distinct from NLW's catalogue."
+      "next_action": "NLW item 507738 is now a separate Wayback target, but its page could not be read during this check. Locate an ITV/HTV-owned catalogue page if one exists; do not infer footage contents or identities."
     },
     {
       "id": "national-library-wales",
@@ -363,9 +399,11 @@
         "44ae1428",
         "3919e048"
       ],
-      "wayback_urls": [],
+      "wayback_urls": [
+        "https://gwylio-gwrando.llyfrgell.cymru/detail/507738"
+      ],
       "coverage_status": "partial",
-      "next_action": "Retry the NLW catalogue and newspaper URLs with rate-limited checks and earlier-copy preservation; do not treat 403/520/429 as successful captures."
+      "next_action": "NLW item 507738 is monitored as a distinct audiovisual catalogue record; keep the 39 newspaper-page URLs and catalogue-page retries separate and rate-limited."
     },
     {
       "id": "glamorgan-archives",
@@ -387,7 +425,8 @@
       ],
       "watch_checks": [],
       "wayback_urls": [
-        "https://canfod.glamarchives.gov.uk/en/records/DSA/12/1003"
+        "https://canfod.glamarchives.gov.uk/en/records/DSA/12/1003",
+        "https://canfod.glamarchives.gov.uk/records/D696"
       ],
       "coverage_status": "partial",
       "next_action": "Check the official Canfod catalogue for D696, DBDT123/7 and relevant Llandough items; retry 520 pages without flooding the host."
