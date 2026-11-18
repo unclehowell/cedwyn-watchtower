@@ -430,6 +430,26 @@
       ],
       "coverage_status": "partial",
       "next_action": "Check the official Canfod catalogue for D696, DBDT123/7 and relevant Llandough items; retry 520 pages without flooding the host."
+    },
+    {
+      "id": "archaeology-data-service",
+      "name": "Archaeology Data Service",
+      "role_class": "digital archive / repository",
+      "role": "Digital repository hosting the Llandough CADW 2004 archive landing page and related archaeological material; a repository/custodial route, not an actor in the 1987 property proceedings.",
+      "qualification": "The exact landing page is now monitored separately. An associated downloadable PDF has a 8 February 2020 Wayback capture, but that date is not the landing page's capture date. The landing page has not yet been assigned a Wayback timestamp.",
+      "evidence": [
+        {
+          "id": "EV-0301",
+          "title": "Archaeology Data Service: Great House Farm archive records enquiry",
+          "url": "https://research.bucklerfamily.estate/evidence/ev-0301-archaeology-data-service-great-house-farm-archive-records-enquiry/"
+        }
+      ],
+      "watch_checks": [],
+      "wayback_urls": [
+        "https://archaeologydataservice.ac.uk/archives/view/llandough_cadw_2004/index.cfm"
+      ],
+      "coverage_status": "partial",
+      "next_action": "Check the exact landing page's earliest Wayback CDX timestamp; keep that result separate from the 8 Feb 2020 associated PDF capture and from ADS organisation-wide pages."
     }
   ]
 }
