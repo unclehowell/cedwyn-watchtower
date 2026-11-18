@@ -1,3 +1,17 @@
+## [3.4.0] - 2026-11-18
+
+### Added
+- Ten evidence-linked official targets for party/institution coverage: ADS Llandough archive landing page, Heneb institutional and HER-service pages, HM Land Registry, Glamorgan Archives D696 (Western Ground Rents), two NLW Bute/manorial catalogue pages, Companies House 00461464 (Ideal Homes Wales / Persimmon Homes (Wales)), NLW Watch and Listen item 507738, and Cardiff Castle's Bute-family context page.
+- Added Archaeology Data Service as a distinct digital repository lead. Its landing-page capture status is not inferred from the separate associated PDF.
+- Party cards now resolve the live Wayback worker's latest timestamp/error before falling back to the saved target snapshot, avoiding stale “uncaptured” labels where the weekly worker has since succeeded.
+
+### Qualified gaps
+- Direct current online pages for historical planning applications 89/01396/OUT and 92/00671/RES were not verified; no invented application URLs were added.
+- No ITV/HTV-owned page for the 1988 Llandough footage was located. NLW item 507738 remains a separate catalogue lead; its page was not readable in this check.
+- No exact relevant Mountjoy Ltd archive record was verified in this pass. Existing Companies House/TNA checks remain; unrelated businesses named Mountjoy are excluded.
+- Historic England remains a comparator, not an established participant.
+- Cardiff Castle's Bute-family page is contextual background only, not evidence that the Castle was a party to the property proceedings.
+
 # Changelog
 
 ## [3.3.0] - 2026-11-10
