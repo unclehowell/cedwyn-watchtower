@@ -8,7 +8,7 @@
 const TARGETS = 'https://raw.githubusercontent.com/unclehowell/cedwyn-watchtower/main/public/data/targets.json';
 const UA = "Mozilla/5.0 (compatible; watchtower-archiver; +https://bucklerfamily.estate/watchtower/)";
 import { DurableObject } from 'cloudflare:workers';
-const PER_RUN = 30, BUDGET_MS = 11 * 60 * 1000, PACE_MS = 6000, VERSION = '1.0.3';
+const PER_RUN = 30, BUDGET_MS = 11 * 60 * 1000, PACE_MS = 6000, VERSION = '1.0.4';
 function isoWeek(d) { const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate())); const day = t.getUTCDay() || 7;
   t.setUTCDate(t.getUTCDate() + 4 - day); const y0 = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
   return t.getUTCFullYear() + '-W' + String(Math.ceil(((t - y0) / 86400000 + 1) / 7)).padStart(2, '0'); }
@@ -70,11 +70,18 @@ export class Clock extends DurableObject {
   async fetch(req) {
     const u = new URL(req.url); let a = await this.ctx.storage.getAlarm();
     if (a === null) { a = nextSunday(new Date()).getTime(); await this.ctx.storage.setAlarm(a); }
-    if (u.searchParams.get('start') === '1') {          // start this week's pass now, once a week at most
+    if (u.searchParams.get('start') === '1') {          // start this week's pass once per ISO week
       const cur = (await this.env.WB.get('cursor', 'json')) || {};
       if (cur.week !== isoWeek(new Date())) { a = Date.now() + 5000; await this.ctx.storage.setAlarm(a); }
     }
-    const out = { next_run: new Date(a).toISOString() };
+    let continuationQueued = false;
+    if (u.searchParams.get('continue') === '1') {        // resume only an existing, incomplete cursor for this ISO week
+      const cur = (await this.env.WB.get('cursor', 'json')) || {};
+      if (cur.week === isoWeek(new Date()) && !cur.done && Number.isInteger(cur.i)) {
+        a = Date.now() + 5000; await this.ctx.storage.setAlarm(a); continuationQueued = true;
+      }
+    }
+    const out = { next_run: new Date(a).toISOString(), continuation_queued: continuationQueued };
     if (u.searchParams.get('selftest') === '1') {      // one Save Page Now of watchtower's own page, at most once an hour
       const last = (await this.ctx.storage.get('selftest')) || 0;
       if (Date.now() - last > 3600000) { await this.ctx.storage.put('selftest', Date.now()); out.selftest = await spn('https://bucklerfamily.estate/watchtower/'); }
