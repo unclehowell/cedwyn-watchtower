@@ -28,7 +28,7 @@
   }
   function targetStatus(item) {
     var w = item && item.wb || {};
-    if (w.ts) return {label:'Wayback capture ' + dateLabel(w.at || w.ts.slice(0,4)+'-'+w.ts.slice(4,6)+'-'+w.ts.slice(6,8)),cls:'ok',url:'https://web.archive.org/web/' + w.ts + '/' + item.u};
+    if (w.ts) return {label:'Wayback capture ' + dateLabel(w.ts.slice(0,4)+'-'+w.ts.slice(4,6)+'-'+w.ts.slice(6,8)) + (w.code ? '; latest attempt failed (' + w.code + ')' : ''),cls:w.code ? 'failed' : 'ok',url:'https://web.archive.org/web/' + w.ts + '/' + item.u};
     if (w.code) return {label:'Save attempt failed (' + w.code + ')' + (item.prior ? '; earlier capture exists' : ''),cls:'failed',url:item.prior ? 'https://web.archive.org/web/' + item.prior + '/' + item.u : ''};
     if (w.at) return {label:'Attempt recorded; no capture timestamp',cls:'pending',url:''};
     return {label:'No capture result in this feed snapshot',cls:'pending',url:''};
