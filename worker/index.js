@@ -8,7 +8,7 @@
 const TARGETS = 'https://raw.githubusercontent.com/unclehowell/cedwyn-watchtower/main/public/data/targets.json';
 const UA = "Mozilla/5.0 (compatible; watchtower-archiver; +https://bucklerfamily.estate/watchtower/)";
 import { DurableObject } from 'cloudflare:workers';
-const PER_RUN = 30, BUDGET_MS = 11 * 60 * 1000, PACE_MS = 6000, VERSION = '1.0.4';
+const PER_RUN = 30, BUDGET_MS = 11 * 60 * 1000, PACE_MS = 6000, VERSION = '1.0.5';
 function isoWeek(d) { const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate())); const day = t.getUTCDay() || 7;
   t.setUTCDate(t.getUTCDate() + 4 - day); const y0 = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
   return t.getUTCFullYear() + '-W' + String(Math.ceil(((t - y0) / 86400000 + 1) / 7)).padStart(2, '0'); }
@@ -96,7 +96,7 @@ export default {
     if (u.pathname.endsWith('/api/wayback.json')) {
       // Compatibility trigger: use the already-routed status path but keep the DO's
       // one-run-per-ISO-week guard as the only authority for arming a new pass.
-      if (u.searchParams.get('start') === '1' && env.CLOCK) {
+      if ((u.searchParams.get('start') === '1' || u.searchParams.get('continue') === '1') && env.CLOCK) {
         await (await env.CLOCK.get(env.CLOCK.idFromName('main')).fetch(req.url)).text();
       }
       const s = (await env.WB.get('status')) || '{"pages":{},"runs":[]}';
