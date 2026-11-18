@@ -1,6 +1,6 @@
 {
-  "version": "3.4.0",
-  "generated": "2026-11-18T13:53:38.558Z",
+  "version": "3.4.1",
+  "generated": "2026-11-18T14:15:35.154Z",
   "about": "Outside web pages found through farm-name variants and legal-citation searches, together with verified official pages for named parties, institutions and archive custodians connected with the wider Llandough / Leckwith research. Party coverage is not a finding of legal responsibility or involvement. Every target is re-archived weekly; newly added URLs show no capture until a timestamp is returned by the archive worker.",
   "weekly": {
     "worker": "bfe-watchtower-archive",
@@ -8,13 +8,13 @@
     "schedule": "Sundays from 03:15 UTC, one page at a time, runs back to back until the list is done"
   },
   "counts": {
-    "targets": 299,
+    "targets": 308,
     "new_2026_11_02": 61,
     "own_pages": 15,
     "saved": 108,
     "earlier_capture_only": 10,
     "case_citations_added_2026_11_10": 12,
-    "party_targets_added_2026_11_18": 10,
+    "party_targets_added_2026_11_18": 19,
     "saved_snapshot_as_of": "2026-11-02 first-pass feed snapshot; live counts are read from /watchtower/api/wayback.json"
   },
   "own": [
@@ -1210,6 +1210,34 @@
       }
     },
     {
+      "u": "https://cardiff.gov.uk/foi",
+      "host": "cardiff.gov.uk",
+      "title": "Cardiff Council: Freedom of Information",
+      "terms": [
+        "Cardiff Council",
+        "Freedom of Information",
+        "institutional context only"
+      ],
+      "first_seen": "2026-11-18T14:15:35.154Z",
+      "found_by": "institutional party follow-up research, 18 Nov 2026",
+      "ambiguous": false,
+      "wb": null
+    },
+    {
+      "u": "https://cardiff.gov.uk/planningapplicationsanddecisions",
+      "host": "cardiff.gov.uk",
+      "title": "Cardiff Council: view planning applications and decisions",
+      "terms": [
+        "Cardiff Council",
+        "planning register",
+        "not Vale of Glamorgan applications"
+      ],
+      "first_seen": "2026-11-18T14:15:35.154Z",
+      "found_by": "institutional party follow-up research, 18 Nov 2026",
+      "ambiguous": false,
+      "wb": null
+    },
+    {
       "u": "https://caselaw.nationalarchives.gov.uk/ewca/civ/2003/1668",
       "host": "caselaw.nationalarchives.gov.uk",
       "title": "Good Challenger Navegante SA v Metalexportimport SA [2003] EWCA Civ 1668",
@@ -1852,6 +1880,20 @@
       }
     },
     {
+      "u": "https://discovery.nationalarchives.gov.uk/results/r?_q=Mountjoy%20Llandough",
+      "host": "discovery.nationalarchives.gov.uk",
+      "title": "The National Archives Discovery search: Mountjoy and Llandough",
+      "terms": [
+        "Mountjoy Ltd",
+        "The National Archives",
+        "catalogue search page"
+      ],
+      "first_seen": "2026-11-18T14:15:35.154Z",
+      "found_by": "institutional party follow-up research, 18 Nov 2026",
+      "ambiguous": false,
+      "wb": null
+    },
+    {
       "u": "https://en.wikipedia.org/wiki/Cwm_Cydfin,_Leckwith",
       "host": "en.wikipedia.org",
       "title": "Cwm Cydfin, Leckwith",
@@ -2014,6 +2056,34 @@
       }
     },
     {
+      "u": "https://find-and-update.company-information.service.gov.uk/search/companies?q=Mountjoy+Limited",
+      "host": "find-and-update.company-information.service.gov.uk",
+      "title": "Companies House search: Mountjoy Limited",
+      "terms": [
+        "Mountjoy Ltd",
+        "Companies House search results",
+        "entity match not yet confirmed"
+      ],
+      "first_seen": "2026-11-18T14:15:35.154Z",
+      "found_by": "institutional party follow-up research, 18 Nov 2026",
+      "ambiguous": false,
+      "wb": null
+    },
+    {
+      "u": "https://find-and-update.company-information.service.gov.uk/search/companies?q=Western+Ground+Rents+Ltd",
+      "host": "find-and-update.company-information.service.gov.uk",
+      "title": "Companies House search: Western Ground Rents Ltd",
+      "terms": [
+        "Western Ground Rents Ltd",
+        "Companies House search results",
+        "company record not yet verified"
+      ],
+      "first_seen": "2026-11-18T14:15:35.154Z",
+      "found_by": "institutional party follow-up research, 18 Nov 2026",
+      "ambiguous": false,
+      "wb": null
+    },
+    {
       "u": "https://forebears.io/wales/glamorganshire/llandough-juxta-penarth",
       "host": "forebears.io",
       "title": "Llandough-juxta-Penarth Birth & Baptism Records",
@@ -2132,6 +2202,20 @@
       ],
       "first_seen": "2026-11-18T13:53:38.558Z",
       "found_by": "party and institutional coverage research, 18 Nov 2026",
+      "ambiguous": false,
+      "wb": null
+    },
+    {
+      "u": "https://historicengland.org.uk/",
+      "host": "historicengland.org.uk",
+      "title": "Historic England — official institutional homepage",
+      "terms": [
+        "Historic England",
+        "heritage comparator",
+        "institution page only"
+      ],
+      "first_seen": "2026-11-18T14:15:35.154Z",
+      "found_by": "institutional party follow-up research, 18 Nov 2026",
       "ambiguous": false,
       "wb": null
     },
@@ -3866,6 +3950,37 @@
       "wb": null
     },
     {
+      "u": "https://www.itv.com/presscentre/presscentre/presscentre/itv-archive",
+      "host": "www.itv.com",
+      "title": "ITV Archive — official archive information and contact page",
+      "terms": [
+        "ITV Archive",
+        "ITV Cymru Wales",
+        "HTV Wales",
+        "1988 footage research route"
+      ],
+      "first_seen": "2026-11-18T14:15:35.154Z",
+      "found_by": "institutional party follow-up research, 18 Nov 2026",
+      "ambiguous": false,
+      "wb": null
+    },
+    {
+      "u": "https://www.library.wales/wales-broadcast-archive",
+      "host": "www.library.wales",
+      "title": "Wales Broadcast Archive — National Library of Wales",
+      "terms": [
+        "Wales Broadcast Archive",
+        "ITV Wales",
+        "BBC Wales",
+        "S4C",
+        "broadcast archive custodian"
+      ],
+      "first_seen": "2026-11-18T14:15:35.154Z",
+      "found_by": "institutional party follow-up research, 18 Nov 2026",
+      "ambiguous": false,
+      "wb": null
+    },
+    {
       "u": "https://www.llandough-cc.co.uk/_UserFiles/Files/_Agendas/213974-Council_Agenda_22_October_2026.pdf",
       "host": "www.llandough-cc.co.uk",
       "title": "www.llandough-cc.co.uk/_UserFiles/Files/_Agendas/213974-Council_Agenda_22_Octob…",
@@ -4332,6 +4447,20 @@
       ],
       "first_seen": "2026-10-24T13:51:20Z",
       "found_by": "watchtower farm list",
+      "ambiguous": false,
+      "wb": null
+    },
+    {
+      "u": "https://www.valeofglamorgan.gov.uk/en/living/planning_and_building_control/Planning/Planning-Applications/View-or-Comment-on-a-Planning-Application.aspx",
+      "host": "www.valeofglamorgan.gov.uk",
+      "title": "Vale of Glamorgan Council: view or comment on planning applications",
+      "terms": [
+        "Vale of Glamorgan Council",
+        "planning register",
+        "historical application search"
+      ],
+      "first_seen": "2026-11-18T14:15:35.154Z",
+      "found_by": "institutional party follow-up research, 18 Nov 2026",
       "ambiguous": false,
       "wb": null
     },
@@ -4829,7 +4958,16 @@
     "https://archives.library.wales/index.php/glamorgan-manorial-estate",
     "https://find-and-update.company-information.service.gov.uk/company/00461464",
     "https://gwylio-gwrando.llyfrgell.cymru/detail/507738",
-    "https://www.cardiffcastle.com/explore/bute-family"
+    "https://www.cardiffcastle.com/explore/bute-family",
+    "https://www.itv.com/presscentre/presscentre/presscentre/itv-archive",
+    "https://www.library.wales/wales-broadcast-archive",
+    "https://cardiff.gov.uk/foi",
+    "https://cardiff.gov.uk/planningapplicationsanddecisions",
+    "https://www.valeofglamorgan.gov.uk/en/living/planning_and_building_control/Planning/Planning-Applications/View-or-Comment-on-a-Planning-Application.aspx",
+    "https://historicengland.org.uk/",
+    "https://find-and-update.company-information.service.gov.uk/search/companies?q=Mountjoy+Limited",
+    "https://discovery.nationalarchives.gov.uk/results/r?_q=Mountjoy%20Llandough",
+    "https://find-and-update.company-information.service.gov.uk/search/companies?q=Western+Ground+Rents+Ltd"
   ],
   "capture_link": "https://web.archive.org/web/<ts>/<u>"
 }
