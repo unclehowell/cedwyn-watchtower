@@ -1,7 +1,7 @@
 {
   "version": "3.4.0",
   "generated": "2026-11-18T13:53:38.558Z",
-  "about": "Outside web pages naming Great House Farm (Tŷ Mawr), Llandough and related places, pages citing BP Properties Ltd v Buckler [1987] EWCA Civ 2, and verified official pages for named parties, archive custodians and institutions in the research. Party coverage is not a finding of legal responsibility or involvement. Every target is re-archived weekly; newly added URLs show no capture until a timestamp is returned by the archive worker.",
+  "about": "Outside web pages found through farm-name variants and legal-citation searches, together with verified official pages for named parties, institutions and archive custodians connected with the wider Llandough / Leckwith research. Party coverage is not a finding of legal responsibility or involvement. Every target is re-archived weekly; newly added URLs show no capture until a timestamp is returned by the archive worker.",
   "weekly": {
     "worker": "bfe-watchtower-archive",
     "status": "/watchtower/api/wayback.json",
