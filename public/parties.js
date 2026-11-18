@@ -33,7 +33,7 @@
     if (w.at) return {label:'Attempt recorded; no capture timestamp',cls:'pending',url:''};
     return {label:'No capture result in this feed snapshot',cls:'pending',url:''};
   }
-  function render(p, checks, targets) {
+  function render(p, checks, targets, live) {
     var watch = (p.watch_checks || []).map(function (id) {
       var c = checks[id];
       return c ? '<li><span class="party-state ' + checkClass(c.status) + '">' + esc(checkLabel(c.status)) + '</span> <a href="' + esc(c.page_url) + '" target="_blank" rel="noopener noreferrer">' + esc(c.label) + '</a><small>' + esc(c.checked ? 'Checked ' + dateLabel(c.checked) : 'No check date') + (c.note ? ' · ' + esc(c.note) : '') + '</small></li>' :
@@ -42,7 +42,7 @@
     var way = (p.wayback_urls || []).map(function (url) {
       var t = targets[url];
       if (!t) return '<li><span class="party-state pending">Not in Wayback target feed</span> <a href="' + esc(url) + '" target="_blank" rel="noopener noreferrer">Open candidate page</a></li>';
-      var s = targetStatus(t);
+      var s = targetStatus(t, live);
       return '<li><span class="party-state ' + s.cls + '">' + esc(s.label) + '</span> <a href="' + esc(url) + '" target="_blank" rel="noopener noreferrer">' + esc(t.title || t.host || url) + '</a>' +
         (s.url ? ' · <a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">archive</a>' : '') + '</li>';
     }).join('');
@@ -60,9 +60,10 @@
   Promise.all([
     getJSON('data/parties.json'),
     getJSON('data/watch-status.json'),
-    getJSON('data/targets.json')
+    getJSON('data/targets.json'),
+    getJSON('/watchtower/api/wayback.json').catch(function () { return {}; })
   ]).then(function (items) {
-    var data = items[0], checks = {}, targets = {};
+    var data = items[0], checks = {}, targets = {}, live = items[3] || {};
     (items[1].targets || []).forEach(function (x) { checks[x.id] = x; });
     (items[2].targets || []).forEach(function (x) { targets[x.u] = x; });
     var parties = data.parties || [];
@@ -70,12 +71,16 @@
     var statuses = data.status_values || [];
     root.innerHTML =
       '<p class="party-intro">' + esc(data.note) + '</p>' +
+      '<p class="party-live">Wayback worker: ' + (live.week ? esc(live.week) : 'live status unavailable') +
+        (live.updated ? ' · status updated ' + esc(dateLabel(live.updated)) : '') +
+        (live.week_progress ? ' · ' + esc(live.week_progress.done) + ' of ' + esc(live.week_progress.of) + ' targets processed' : '') +
+      '</p>' +
       '<div class="party-filters"><label>Role <select id="party-role"><option value="">All roles</option>' +
         roles.map(function (x) { return '<option value="' + esc(x) + '">' + esc(x) + '</option>'; }).join('') +
       '</select></label><label>Coverage <select id="party-status"><option value="">All coverage states</option>' +
         statuses.map(function (x) { return '<option value="' + esc(x) + '">' + esc(x) + '</option>'; }).join('') +
       '</select></label><span id="party-count" aria-live="polite"></span></div>' +
-      '<div id="party-cards" class="party-cards">' + parties.map(function (p) { return render(p, checks, targets); }).join('') + '</div>' +
+      '<div id="party-cards" class="party-cards">' + parties.map(function (p) { return render(p, checks, targets, live); }).join('') + '</div>' +
       '<p class="party-foot">Live status labels come from the separate Watchtower absence and Wayback feeds. A negative search, an untested URL or an archive error is not proof that a record does not exist.</p>';
     var role = document.getElementById('party-role'), status = document.getElementById('party-status');
     var cards = Array.prototype.slice.call(root.querySelectorAll('.party-card')), count = document.getElementById('party-count');
