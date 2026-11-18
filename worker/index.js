@@ -8,7 +8,7 @@
 const TARGETS = 'https://raw.githubusercontent.com/unclehowell/cedwyn-watchtower/main/public/data/targets.json';
 const UA = "Mozilla/5.0 (compatible; watchtower-archiver; +https://bucklerfamily.estate/watchtower/)";
 import { DurableObject } from 'cloudflare:workers';
-const PER_RUN = 30, BUDGET_MS = 11 * 60 * 1000, PACE_MS = 6000, VERSION = '1.0.7';
+const PER_RUN = 30, BUDGET_MS = 11 * 60 * 1000, PACE_MS = 6000, VERSION = '1.0.8';
 function isoWeek(d) { const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate())); const day = t.getUTCDay() || 7;
   t.setUTCDate(t.getUTCDate() + 4 - day); const y0 = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
   return t.getUTCFullYear() + '-W' + String(Math.ceil(((t - y0) / 86400000 + 1) / 7)).padStart(2, '0'); }
@@ -23,38 +23,96 @@ async function spn(u) {
   } catch (e) { r.code = 'err ' + (e && e.name || 'fetch'); }
   r.s = Math.round((Date.now() - t0) / 100) / 10; return r;
 }
+function retryCandidates(urls, status, week) {
+  return urls.filter((u) => {
+    const p = (status.pages || {})[u] || {};
+    const code = String(p.code || '');
+    return !p.ts && p.week === week &&
+      (p.skipped || code === '520' || code === '523' || code === '429' || code.startsWith('err'));
+  });
+}
 async function run(env, why) {
   const t0 = Date.now(), now = new Date(), week = isoWeek(now);
   const st = (await env.WB.get('status', 'json')) || { pages: {}, runs: [] };
   const cur = (await env.WB.get('cursor', 'json')) || {};
-  if (cur.week !== week) { cur.week = week; cur.i = 0; cur.started = now.toISOString(); }
-  let list = [];
-  try { const r = await fetch(TARGETS + '?v=' + Date.now(), { headers: { 'User-Agent': UA } }); const j = await r.json(); list = j.order || (j.targets || j).map(x => x.u || x); }
-  catch (e) { st.runs.unshift({ at: now.toISOString(), why, week, error: 'target list unreadable' }); st.runs = st.runs.slice(0, 30); await env.WB.put('status', JSON.stringify(st)); return false; }
-  if (cur.done && cur.i >= list.length) return true;       // this week's list is finished: no writes
+  if (cur.week !== week) {
+    cur.week = week; cur.i = 0; cur.started = now.toISOString(); cur.done = null;
+    cur.retry_urls = []; cur.retry_i = 0; cur.retry_active = false; cur.retry_done_week = null;
+  }
+  let primary = [];
+  try {
+    const r = await fetch(TARGETS + '?v=' + Date.now(), { headers: { 'User-Agent': UA } });
+    const j = await r.json();
+    primary = j.order || (j.targets || j).map(x => x.u || x);
+  } catch (e) {
+    st.runs.unshift({ at: now.toISOString(), why, week, error: 'target list unreadable' });
+    st.runs = st.runs.slice(0, 30);
+    await env.WB.put('status', JSON.stringify(st));
+    return false;
+  }
+  const retryActive = cur.retry_active === true && cur.retry_week === week && Array.isArray(cur.retry_urls);
+  const list = retryActive ? cur.retry_urls : primary;
+  let pos = retryActive ? (cur.retry_i || 0) : (cur.i || 0);
+  if (!retryActive && cur.done && pos >= primary.length && cur.retry_done_week === week) return true;
   let n = 0, ok = 0, rate = false;
-  while (cur.i < list.length && n < PER_RUN && Date.now() - t0 < BUDGET_MS) {
-    const u = list[cur.i]; let host = ''; try { host = new URL(u).host; } catch (e) {}
-    cur.hr = cur.hr || {}; cur.hok = cur.hok || {};
-    if (host && (cur.hr[host] || 0) >= 3 && !cur.hok[host]) {   // the archive has failed 3 times on this site this week: skip the rest
-      const p = st.pages[u] || {}; p.last_try = new Date().toISOString(); p.code = 520; p.week = week; p.skipped = 'site refused the archive 3 times this week';
-      st.pages[u] = p; cur.i++; continue;
-    }
+  while (pos < list.length && n < PER_RUN && Date.now() - t0 < BUDGET_MS) {
+    const u = list[pos];
     const r = await spn(u); n++;
-    if (r.code === 429) { rate = true; break; }               // back off; the same page is first next run
-    const p = st.pages[u] || {}; p.last_try = r.at; p.code = r.code; p.week = week; delete p.skipped;
-    if (r.ok) { p.ts = r.ts; p.ok_at = r.at; ok++; if (host) cur.hok[host] = 1; }
-    else if (host && (r.code === 520 || r.code === 523)) cur.hr[host] = (cur.hr[host] || 0) + 1;
-    st.pages[u] = p; cur.i++;
+    if (r.code === 429) { rate = true; break; }
+    const p = st.pages[u] || {};
+    p.last_try = r.at; p.code = r.code; p.week = week; delete p.skipped;
+    if (r.ok) { p.ts = r.ts; p.ok_at = r.at; ok++; }
+    st.pages[u] = p;
+    pos++;
+    if (retryActive) cur.retry_i = pos;
+    else cur.i = pos;
     await sleep(PACE_MS);
   }
-  if (cur.i >= list.length && !cur.done) cur.done = new Date().toISOString();
-  if (cur.i < list.length) cur.done = null;
-  st.runs.unshift({ at: now.toISOString(), why, week, tried: n, ok, rate_limited: rate, position: cur.i, of: list.length });
-  st.runs = st.runs.slice(0, 30); st.week = week; st.week_progress = { done: cur.i, of: list.length, finished: cur.done || null };
+  let retryQueued = false;
+  if (retryActive) {
+    if (pos >= list.length) {
+      cur.retry_active = false;
+      cur.retry_done_week = week;
+      cur.retry_completed = new Date().toISOString();
+      cur.done = cur.main_completed || new Date().toISOString();
+    }
+  } else if (pos >= primary.length) {
+    if (cur.retry_done_week !== week) {
+      const failed = retryCandidates(primary, st, week);
+      if (failed.length) {
+        cur.retry_urls = failed;
+        cur.retry_i = 0;
+        cur.retry_week = week;
+        cur.retry_active = true;
+        cur.done = null;
+        retryQueued = true;
+      } else {
+        cur.done = new Date().toISOString();
+        cur.retry_done_week = week;
+      }
+      cur.main_completed = new Date().toISOString();
+    } else {
+      cur.done = cur.main_completed || new Date().toISOString();
+    }
+  } else {
+    cur.done = null;
+  }
+  const finished = retryActive ? pos >= list.length : (pos >= primary.length && !retryQueued && cur.retry_done_week === week);
+  const position = retryActive ? cur.retry_i : cur.i;
+  const total = retryActive ? list.length : primary.length;
+  st.runs.unshift({ at: now.toISOString(), why, week, pass: retryActive ? 'retry' : 'primary', tried: n, ok, rate_limited: rate, position, of: total, retry_queued: retryQueued });
+  st.runs = st.runs.slice(0, 30);
+  st.week = week;
+  st.week_progress = {
+    done: cur.i || 0,
+    of: primary.length,
+    finished: finished ? (cur.done || new Date().toISOString()) : null,
+    retry: { done: cur.retry_i || 0, of: (cur.retry_urls || []).length, queued: cur.retry_active === true, finished: cur.retry_completed || null }
+  };
   st.updated = new Date().toISOString(); st.version = VERSION;
-  await env.WB.put('status', JSON.stringify(st)); await env.WB.put('cursor', JSON.stringify(cur));
-  return { finished: cur.i >= list.length, rate };
+  await env.WB.put('status', JSON.stringify(st));
+  await env.WB.put('cursor', JSON.stringify(cur));
+  return { finished, rate, retry_queued: retryQueued };
 }
 const H = { 'content-type': 'application/json; charset=utf-8', 'access-control-allow-origin': '*', 'cache-control': 'public, max-age=300' };
 function nextSunday(now) {               // next Sunday 03:15 UTC strictly after now
@@ -70,38 +128,60 @@ export class Clock extends DurableObject {
   async fetch(req) {
     const u = new URL(req.url); let a = await this.ctx.storage.getAlarm();
     if (a === null) { a = nextSunday(new Date()).getTime(); await this.ctx.storage.setAlarm(a); }
-    if (u.searchParams.get('start') === '1') {          // start this week's pass once per ISO week
+    const week = isoWeek(new Date());
+    if (u.searchParams.get('start') === '1') {
       const cur = (await this.env.WB.get('cursor', 'json')) || {};
-      if (cur.week !== isoWeek(new Date())) { a = Date.now() + 5000; await this.ctx.storage.setAlarm(a); }
+      if (cur.week !== week) { a = Date.now() + 5000; await this.ctx.storage.setAlarm(a); }
     }
     let continuationQueued = false, continuationReason = null, currentTargetCount = null;
+    let retryQueued = false, retryCount = 0;
     if (u.searchParams.get('continue') === '1') {
       const cur = (await this.env.WB.get('cursor', 'json')) || {};
-      if (cur.week === isoWeek(new Date()) && Number.isInteger(cur.i)) {
-        // The current week may already be marked complete when a new set of URLs is appended
-        // to targets.json after the weekly pass. Compare the existing cursor with the live
-        // feed length so only newly appended URLs are processed; never rewind old positions.
+      if (cur.week === week && Number.isInteger(cur.i)) {
         try {
           const r = await fetch(TARGETS + '?v=' + Date.now(), { headers: { 'User-Agent': UA } });
           const j = await r.json();
           const list = j.order || (j.targets || j).map(x => x.u || x);
           currentTargetCount = list.length;
         } catch (e) {}
+        const retryPending = cur.retry_active === true && Array.isArray(cur.retry_urls) && (cur.retry_i || 0) < cur.retry_urls.length;
         const appendedTargets = Number.isInteger(currentTargetCount) && cur.i < currentTargetCount;
-        if (!cur.done || appendedTargets) {
-          if (cur.done && appendedTargets) {
-            cur.done = null;
-            await this.env.WB.put('cursor', JSON.stringify(cur));
-          }
-          a = Date.now() + 5000;
-          await this.ctx.storage.setAlarm(a);
+        if (!cur.done || appendedTargets || retryPending) {
+          if (cur.done && appendedTargets) { cur.done = null; await this.env.WB.put('cursor', JSON.stringify(cur)); }
+          a = Date.now() + 5000; await this.ctx.storage.setAlarm(a);
           continuationQueued = true;
-          continuationReason = appendedTargets ? 'new targets appended after the previous weekly pass' : 'resume incomplete weekly pass';
+          continuationReason = retryPending ? 'resume queued retry pass' : (appendedTargets ? 'new targets appended after the previous weekly pass' : 'resume incomplete weekly pass');
         }
       }
     }
-    const out = { next_run: new Date(a).toISOString(), continuation_queued: continuationQueued, continuation_reason: continuationReason, current_target_count: currentTargetCount };
-    if (u.searchParams.get('selftest') === '1') {      // one Save Page Now of watchtower's own page, at most once an hour
+    if (u.searchParams.get('retry') === '1') {
+      const cur = (await this.env.WB.get('cursor', 'json')) || {};
+      const st = (await this.env.WB.get('status', 'json')) || { pages: {} };
+      let primary = [];
+      try {
+        const r = await fetch(TARGETS + '?v=' + Date.now(), { headers: { 'User-Agent': UA } });
+        const j = await r.json();
+        primary = j.order || (j.targets || j).map(x => x.u || x);
+      } catch (e) {}
+      if (primary.length) {
+        if (cur.week !== week) { cur.week = week; cur.i = primary.length; cur.started = cur.started || new Date().toISOString(); }
+        if (cur.retry_active === true && cur.retry_week === week) {
+          retryQueued = true; retryCount = (cur.retry_urls || []).length;
+        } else {
+          const failed = retryCandidates(primary, st, week);
+          retryCount = failed.length;
+          if (failed.length) {
+            cur.retry_urls = failed; cur.retry_i = 0; cur.retry_week = week;
+            cur.retry_active = true; cur.retry_done_week = null; cur.done = null;
+            await this.env.WB.put('cursor', JSON.stringify(cur));
+            a = Date.now() + 5000; await this.ctx.storage.setAlarm(a);
+            retryQueued = true;
+          }
+        }
+      }
+    }
+    const out = { next_run: new Date(a).toISOString(), continuation_queued: continuationQueued, continuation_reason: continuationReason, current_target_count: currentTargetCount, retry_queued: retryQueued, retry_count: retryCount };
+    if (u.searchParams.get('selftest') === '1') {
       const last = (await this.ctx.storage.get('selftest')) || 0;
       if (Date.now() - last > 3600000) { await this.ctx.storage.put('selftest', Date.now()); out.selftest = await spn('https://bucklerfamily.estate/watchtower/'); }
       else out.selftest = 'skipped: ran within the last hour';
@@ -117,7 +197,7 @@ export default {
       // Preserve the existing status JSON shape and add an explicit trigger result,
       // so an HTTP 200 can never be mistaken for a successfully queued continuation.
       let trigger = null, trigger_error = null;
-      const requested = u.searchParams.get('start') === '1' || u.searchParams.get('continue') === '1';
+      const requested = u.searchParams.get('start') === '1' || u.searchParams.get('continue') === '1' || u.searchParams.get('retry') === '1';
       if (requested && env.CLOCK) {
         try {
           const r = await env.CLOCK.get(env.CLOCK.idFromName('main')).fetch(req.url);
@@ -136,7 +216,7 @@ export default {
     }
     if (u.pathname.endsWith('/api/wayback/about.json') || u.pathname.endsWith('/api/wayback/arm')) {
       const c = env.CLOCK ? await (await env.CLOCK.get(env.CLOCK.idFromName('main')).fetch(req.url)).json() : {};
-      return new Response(JSON.stringify(Object.assign({ worker: 'bfe-watchtower-archive', version: VERSION, schedule: 'weekly: Sundays from 03:15 UTC, one page at a time, runs back to back, ' + PER_RUN + ' pages per run until the week\'s list is done', targets: TARGETS, method: 'web.archive.org/save/<url>, one page at a time' }, c)), { headers: H });
+      return new Response(JSON.stringify(Object.assign({ worker: 'bfe-watchtower-archive', version: VERSION, schedule: 'weekly: Sundays from 03:15 UTC, one page at a time, runs back to back, ' + PER_RUN + ' pages per run; failed targets receive one separate paced retry pass', targets: TARGETS, method: 'web.archive.org/save/<url>, one page at a time' }, c)), { headers: H });
     }
     return new Response('Not found', { status: 404 });
   }
