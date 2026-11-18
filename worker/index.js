@@ -8,7 +8,7 @@
 const TARGETS = 'https://raw.githubusercontent.com/unclehowell/cedwyn-watchtower/main/public/data/targets.json';
 const UA = "Mozilla/5.0 (compatible; watchtower-archiver; +https://bucklerfamily.estate/watchtower/)";
 import { DurableObject } from 'cloudflare:workers';
-const PER_RUN = 30, BUDGET_MS = 11 * 60 * 1000, PACE_MS = 6000, VERSION = '1.0.6';
+const PER_RUN = 30, BUDGET_MS = 11 * 60 * 1000, PACE_MS = 6000, VERSION = '1.0.7';
 function isoWeek(d) { const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate())); const day = t.getUTCDay() || 7;
   t.setUTCDate(t.getUTCDate() + 4 - day); const y0 = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
   return t.getUTCFullYear() + '-W' + String(Math.ceil(((t - y0) / 86400000 + 1) / 7)).padStart(2, '0'); }
@@ -74,14 +74,33 @@ export class Clock extends DurableObject {
       const cur = (await this.env.WB.get('cursor', 'json')) || {};
       if (cur.week !== isoWeek(new Date())) { a = Date.now() + 5000; await this.ctx.storage.setAlarm(a); }
     }
-    let continuationQueued = false;
-    if (u.searchParams.get('continue') === '1') {        // resume only an existing, incomplete cursor for this ISO week
+    let continuationQueued = false, continuationReason = null, currentTargetCount = null;
+    if (u.searchParams.get('continue') === '1') {
       const cur = (await this.env.WB.get('cursor', 'json')) || {};
-      if (cur.week === isoWeek(new Date()) && !cur.done && Number.isInteger(cur.i)) {
-        a = Date.now() + 5000; await this.ctx.storage.setAlarm(a); continuationQueued = true;
+      if (cur.week === isoWeek(new Date()) && Number.isInteger(cur.i)) {
+        // The current week may already be marked complete when a new set of URLs is appended
+        // to targets.json after the weekly pass. Compare the existing cursor with the live
+        // feed length so only newly appended URLs are processed; never rewind old positions.
+        try {
+          const r = await fetch(TARGETS + '?v=' + Date.now(), { headers: { 'User-Agent': UA } });
+          const j = await r.json();
+          const list = j.order || (j.targets || j).map(x => x.u || x);
+          currentTargetCount = list.length;
+        } catch (e) {}
+        const appendedTargets = Number.isInteger(currentTargetCount) && cur.i < currentTargetCount;
+        if (!cur.done || appendedTargets) {
+          if (cur.done && appendedTargets) {
+            cur.done = null;
+            await this.env.WB.put('cursor', JSON.stringify(cur));
+          }
+          a = Date.now() + 5000;
+          await this.ctx.storage.setAlarm(a);
+          continuationQueued = true;
+          continuationReason = appendedTargets ? 'new targets appended after the previous weekly pass' : 'resume incomplete weekly pass';
+        }
       }
     }
-    const out = { next_run: new Date(a).toISOString(), continuation_queued: continuationQueued };
+    const out = { next_run: new Date(a).toISOString(), continuation_queued: continuationQueued, continuation_reason: continuationReason, current_target_count: currentTargetCount };
     if (u.searchParams.get('selftest') === '1') {      // one Save Page Now of watchtower's own page, at most once an hour
       const last = (await this.ctx.storage.get('selftest')) || 0;
       if (Date.now() - last > 3600000) { await this.ctx.storage.put('selftest', Date.now()); out.selftest = await spn('https://bucklerfamily.estate/watchtower/'); }
