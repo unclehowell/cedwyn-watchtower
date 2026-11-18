@@ -2,13 +2,13 @@
 // bfe-watchtower-archive — weekly Wayback Machine (Save Page Now) backup of every outside page watchtower tracks.
 // Clock: a Durable Object alarm (no cron slot needed; the free plan's 5 cron triggers are all in use). The alarm fires
 // Sundays 03:15 UTC and then a new run 2 minutes after each run ends until the week's list is done. Each run takes the next batch of targets for this ISO week from
-// targets.json on the cedwyn 'watchtower' branch, asks web.archive.org/save/<url> once per page (one at a time, paced),
+// targets.json in the canonical cedwyn-watchtower repository, asks web.archive.org/save/<url> once per page (one at a time, paced),
 // and records capture time / status in KV. GET /watchtower/api/wayback.json serves the status. No other writes anywhere.
 // — Sion's Tab agent
 const TARGETS = 'https://raw.githubusercontent.com/unclehowell/cedwyn-watchtower/main/public/data/targets.json';
 const UA = "Mozilla/5.0 (compatible; watchtower-archiver; +https://bucklerfamily.estate/watchtower/)";
 import { DurableObject } from 'cloudflare:workers';
-const PER_RUN = 30, BUDGET_MS = 11 * 60 * 1000, PACE_MS = 6000, VERSION = '1.0.0';
+const PER_RUN = 30, BUDGET_MS = 11 * 60 * 1000, PACE_MS = 6000, VERSION = '1.0.2';
 function isoWeek(d) { const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate())); const day = t.getUTCDay() || 7;
   t.setUTCDate(t.getUTCDate() + 4 - day); const y0 = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
   return t.getUTCFullYear() + '-W' + String(Math.ceil(((t - y0) / 86400000 + 1) / 7)).padStart(2, '0'); }
