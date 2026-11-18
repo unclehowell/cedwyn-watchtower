@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "generated": "2026-11-18",
-  "note": "Evidence-linked coverage map. Roles are research classifications, not findings of liability or universal legal-party status. A match in a generic search, an archive catalogue entry and a direct institutional page are different levels of coverage. A Wayback target is not a successful capture until its timestamp is returned by the live archive worker.",
+  "note": "Evidence-linked coverage map. Roles are research classifications, not findings of liability or universal legal-party status. A match in a generic search, an archive catalogue entry, an institutional page and a direct company record are different levels of coverage. Search pages are labelled as search/index routes, not as evidence that a matching entity record exists. A Wayback target is not a successful capture until a timestamp is returned by the live archive worker.",
   "status_values": [
     "partial",
     "research needed",
@@ -69,10 +69,11 @@
         "14de73b6"
       ],
       "wayback_urls": [
-        "https://canfod.glamarchives.gov.uk/records/D696"
+        "https://canfod.glamarchives.gov.uk/records/D696",
+        "https://find-and-update.company-information.service.gov.uk/search/companies?q=Western+Ground+Rents+Ltd"
       ],
       "coverage_status": "partial",
-      "next_action": "Resolve the failed Companies House filing-history URL and NLW search; consider a relevant official company-history or TNA record page after opening it."
+      "next_action": "Glamorgan Archives D696 is the directly relevant archival catalogue record; Companies House search is monitored as a search page only. Company profile 00342092 returned not found in this check and is not asserted to be the correct entity."
     },
     {
       "id": "mountjoy",
@@ -106,9 +107,12 @@
         "22e4bdc4",
         "3f986c1b"
       ],
-      "wayback_urls": [],
+      "wayback_urls": [
+        "https://find-and-update.company-information.service.gov.uk/search/companies?q=Mountjoy+Limited",
+        "https://discovery.nationalarchives.gov.uk/results/r?_q=Mountjoy%20Llandough"
+      ],
       "coverage_status": "partial",
-      "next_action": "Retain the Companies House and TNA checks; verify the current TNA search results and identify a direct, relevant company or archival page."
+      "next_action": "Companies House and The National Archives search pages are now monitored as search/index routes only. No relevant Mountjoy Ltd company profile or catalogue item has yet been verified; do not conflate Bute Estate, Mountjoy, Mount Stuart and Cardiff Castle."
     },
     {
       "id": "bute-estate",
@@ -267,10 +271,11 @@
       ],
       "wayback_urls": [
         "https://www.valeofglamorgan.gov.uk/en/living/planning_and_building_control/Planning/Heritage.aspx",
-        "https://www.valeofglamorgan.gov.uk/files/Living/Planning/Policy/County_Treasures/Llandough.pdf"
+        "https://www.valeofglamorgan.gov.uk/files/Living/Planning/Policy/County_Treasures/Llandough.pdf",
+        "https://www.valeofglamorgan.gov.uk/en/living/planning_and_building_control/Planning/Planning-Applications/View-or-Comment-on-a-Planning-Application.aspx"
       ],
       "coverage_status": "partial",
-      "next_action": "Identify official planning-register URLs for 89/01396/OUT and 92/00671/RES and add them only after checking the live records."
+      "next_action": "The Council states that current and previous applications may be searched on its Planning Register, and that closed/determined files not online may be requested under EIR. Direct result pages for 89/01396/OUT and 92/00671/RES have not yet been verified; keep them as separate search tasks."
     },
     {
       "id": "heneb",
@@ -311,9 +316,11 @@
       "watch_checks": [
         "3a678a07"
       ],
-      "wayback_urls": [],
-      "coverage_status": "research needed",
-      "next_action": "Open the existing archive-photo search and identify whether it returns a relevant Llandough record; do not infer involvement from an untested 403."
+      "wayback_urls": [
+        "https://historicengland.org.uk/"
+      ],
+      "coverage_status": "partial",
+      "next_action": "Institutional homepage now monitored. The candidate photographic search page returned not found; locate a working Historic England archive/NRHE Llandough result before describing a specific record as present or absent."
     },
     {
       "id": "cardiff-corporation-council",
@@ -331,9 +338,12 @@
       "watch_checks": [
         "94f8617e"
       ],
-      "wayback_urls": [],
+      "wayback_urls": [
+        "https://cardiff.gov.uk/foi",
+        "https://cardiff.gov.uk/planningapplicationsanddecisions"
+      ],
       "coverage_status": "partial",
-      "next_action": "Verify the current Cardiff Council FOI search and identify a relevant official historic-committee or planning record page if one exists."
+      "next_action": "These Cardiff Council pages are general FOI and planning-system context only. The historic Llandough planning applications 89/01396/OUT and 92/00671/RES remain Vale of Glamorgan Council matters; do not attribute them to Cardiff."
     },
     {
       "id": "cardiff-castle-bute-collections",
@@ -373,7 +383,8 @@
         "6e452ee4"
       ],
       "wayback_urls": [
-        "https://gwylio-gwrando.llyfrgell.cymru/detail/507738"
+        "https://gwylio-gwrando.llyfrgell.cymru/detail/507738",
+        "https://www.itv.com/presscentre/presscentre/presscentre/itv-archive"
       ],
       "coverage_status": "partial",
       "next_action": "NLW item 507738 is now a separate Wayback target, but its page could not be read during this check. Locate an ITV/HTV-owned catalogue page if one exists; do not infer footage contents or identities."
@@ -400,7 +411,8 @@
         "3919e048"
       ],
       "wayback_urls": [
-        "https://gwylio-gwrando.llyfrgell.cymru/detail/507738"
+        "https://gwylio-gwrando.llyfrgell.cymru/detail/507738",
+        "https://www.library.wales/wales-broadcast-archive"
       ],
       "coverage_status": "partial",
       "next_action": "NLW item 507738 is monitored as a distinct audiovisual catalogue record; keep the 39 newspaper-page URLs and catalogue-page retries separate and rate-limited."

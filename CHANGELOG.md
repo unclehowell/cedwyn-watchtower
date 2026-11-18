@@ -1,3 +1,17 @@
+## [3.4.1] - 2026-11-18
+
+### Added
+- Official institutional pages for ITV Archive and the Wales Broadcast Archive, kept distinct from the actual NLW catalogue item 507738 and from footage content not yet viewed.
+- Cardiff Council FOI and planning-system pages are tagged as institutional context only; the Llandough planning applications remain Vale of Glamorgan matters.
+- Vale Council's official page for searching current and previous planning applications is monitored. It explains that closed/determined application documents not available online may need to be requested; no direct application result URL was invented.
+- Historic England's official homepage is now monitored as an institution page only; the attempted Llandough photographic search endpoint returned 404 and is not stored as a working target.
+- Companies House and The National Archives search pages for Mountjoy, plus a Companies House search page for Western Ground Rents, are monitored as search/index routes only. No unverified company number or relevant Mountjoy profile is asserted.
+
+### Qualifications
+- Cardiff Council does not replace the Vale of Glamorgan Council as the planning authority for 89/01396/OUT and 92/00671/RES.
+- Search/index URLs are not treated as direct records or proof that a matching entity exists.
+- The historic planning result pages and a direct relevant Mountjoy Ltd catalogue/company page remain open gaps.
+
 ## Archive worker 1.0.7 — 18 Nov 2026
 
 - Fixes an append-after-completion edge case. If a new batch of URLs is committed after the current week's archive cursor was marked complete, `?continue=1` now compares the live feed length with the existing cursor and resumes only the appended tail.
