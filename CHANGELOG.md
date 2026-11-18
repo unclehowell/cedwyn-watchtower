@@ -1,3 +1,9 @@
+## Archive worker 1.0.7 — 18 Nov 2026
+
+- Fixes an append-after-completion edge case. If a new batch of URLs is committed after the current week's archive cursor was marked complete, `?continue=1` now compares the live feed length with the existing cursor and resumes only the appended tail.
+- Existing cursor position is preserved; earlier URLs are not replayed and saved status remains in KV. The existing 6-second pacing, 30-URL batch limit, 429 back-off, and three-refusal-per-host guard remain unchanged.
+- This specifically allows the ten new party/institution targets in release 3.4.0 to be archived during the current ISO week without resetting the completed run.
+
 ## [3.4.0] - 2026-11-18
 
 ### Added
