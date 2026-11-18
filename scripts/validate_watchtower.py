@@ -52,6 +52,8 @@ def main() -> int:
     citations = load_json("public/data/case-citations.json")
     targets = load_json("public/data/targets.json")
     changes = load_json("public/data/changes.json")
+    parties_data = load_json("public/data/parties.json")
+    absence = load_json("public/data/watch-status.json")
     html = (ROOT / "public/index.html").read_text(encoding="utf-8")
 
     judgments = citations.get("judicial_citations", [])
@@ -140,6 +142,47 @@ def main() -> int:
     require("name variants" in targets.get("about", "").lower()
             or "property-name" in targets.get("about", "").lower(),
             "Target feed scope should describe the property-name discovery set.")
+
+    # Party/institution coverage is a separate, evidence-linked layer. References must
+    # resolve to existing Watchtower checks or exact URLs already in the archive feed.
+    parties = parties_data.get("parties", [])
+    require(bool(parties), "Party coverage register must contain entries.")
+    party_ids = [item.get("id") for item in parties]
+    require(None not in party_ids and len(party_ids) == len(set(party_ids)),
+            "Party coverage IDs must be present and unique.")
+    allowed_party_status = set(parties_data.get("status_values", []))
+    require(allowed_party_status == {"partial", "research needed", "no verified target", "role not established"},
+            "Party coverage status vocabulary is missing or has changed unexpectedly.")
+    absence_ids = {item.get("id") for item in absence.get("targets", [])}
+    archive_urls = {item.get("u") for item in target_items}
+    require(bool(absence_ids), "Absence-watch data must remain available for party coverage.")
+    for item in parties:
+        require(item.get("name") and item.get("role_class") and item.get("role"),
+                f"Party entry lacks a name or role: {item.get('id')}")
+        require(item.get("coverage_status") in allowed_party_status,
+                f"Party entry has an invalid coverage status: {item.get('id')}")
+        require(item.get("qualification") and item.get("next_action"),
+                f"Party entry lacks a qualification or next action: {item.get('id')}")
+        for ref in item.get("watch_checks", []):
+            require(ref in absence_ids,
+                    f"Party entry refers to an unknown absence-watch check: {item.get('id')} / {ref}")
+        for url in item.get("wayback_urls", []):
+            require(url in archive_urls,
+                    f"Party entry refers to a URL not in the Wayback target feed: {item.get('id')} / {url}")
+        evidence_ids = [ref.get("id") for ref in item.get("evidence", [])]
+        require(len(evidence_ids) == len(set(evidence_ids)),
+                f"Duplicate evidence anchor in party entry: {item.get('id')}")
+        for ref in item.get("evidence", []):
+            require(ref.get("id") and ref.get("title") and str(ref.get("url", "")).startswith("https://"),
+                    f"Party entry has an incomplete public evidence anchor: {item.get('id')}")
+    require('id="parties"' in html and 'id="parties-body"' in html,
+            "The public page must contain the party coverage section and render target.")
+    require('href="data/parties.json"' in html,
+            "The page must link to the machine-readable party coverage data.")
+    require('src="parties.js?v=' in html and (ROOT / "public/parties.js").is_file(),
+            "The page must load the party coverage renderer.")
+    require((ROOT / "public/parties.css").is_file(),
+            "The page must include the party coverage stylesheet.")
 
     print(
         "Watchtower validation passed: "
