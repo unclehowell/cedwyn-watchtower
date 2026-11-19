@@ -1,6 +1,6 @@
 {
-  "version": "3.4.3",
-  "generated": "2026-11-19T22:12:00Z",
+  "version": "3.4.4",
+  "generated": "2026-11-19T22:16:00Z",
   "about": "Outside web pages found through farm-name variants and legal-citation searches, together with verified official pages for named parties, institutions and archive custodians connected with the wider Llandough / Leckwith research. Party coverage is not a finding of legal responsibility or involvement. Every target is re-archived weekly; newly added URLs show no capture until a timestamp is returned by the archive worker.",
   "weekly": {
     "worker": "bfe-watchtower-archive",
