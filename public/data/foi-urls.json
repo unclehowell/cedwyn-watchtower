@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-19T20:25:00Z",
+  "generated": "2026-11-19T20:40:10Z",
   "count": 284,
   "items": [
     {
@@ -3970,11 +3970,11 @@
       "foi_ref": "",
       "date_given": "2026-11-19",
       "category": "record",
-      "ia_status": "capture pending; Watchtower target added 19 Nov 2026; no snapshot timestamp confirmed",
+      "ia_status": "capture pending; exact URL added to Watchtower queue; no successful Internet Archive timestamp confirmed",
       "ia_url": "https://web.archive.org/web/*/https://canfod.glamarchives.gov.uk/records/DB/E/1-8/1-2",
       "ia_timestamp": "",
-      "our_copy_path": "https://wayback-html.bucklerfamily.estate/websites/canfod.glamarchives.gov.uk/records-db-e-1-8-1-2/latest.html",
-      "our_copy_note": "Local text-preservation copy v1.0.0 created 19 Nov 2026 from readable catalogue text extraction. Not a facsimile of the catalogue HTML or manuscript plan. Internet Archive capture not yet confirmed.",
+      "our_copy_path": "https://github.com/unclehowell/cedwyn-wayback/blob/main/wayback/websites/canfod.glamarchives.gov.uk/records-db-e-1-8-1-2/latest.html",
+      "our_copy_note": "Canonical local HTML copy v1.0.0 in unclehowell/cedwyn-wayback under wayback/websites/ (direct repository file link). Collection folder: https://github.com/unclehowell/cedwyn-wayback/tree/main/wayback/websites/canfod.glamarchives.gov.uk/records-db-e-1-8-1-2. Full readable catalogue text retained; this is not a facsimile of the original catalogue HTML or manuscript survey. The legacy public Pages host is not yet aligned with the dedicated repository, so use this verified repository copy link.",
       "live_status": "Readable catalogue text extracted; direct browser retrieval returned 403 in the 19 Nov 2026 check",
       "checked_at": "2026-11-19T20:25:00Z"
     }
