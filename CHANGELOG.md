@@ -1,3 +1,8 @@
+## [3.4.3] - 2026-11-19
+
+### Corrected
+- Replaced the unavailable Pages-host URL for the Canfod DB/E/1-2 local copy with the verified direct file in the dedicated `unclehowell/cedwyn-wayback` repository. The archive file remains under `wayback/websites/canfod.glamarchives.gov.uk/records-db-e-1-8-1-2/`; the Internet Archive timestamp remains blank until a capture is confirmed.
+
 ## [3.4.2] - 2026-11-19
 
 ### Added
