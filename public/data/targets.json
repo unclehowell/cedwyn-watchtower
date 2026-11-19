@@ -1,6 +1,6 @@
 {
-  "version": "3.4.2",
-  "generated": "2026-11-19T20:25:00Z",
+  "version": "3.4.3",
+  "generated": "2026-11-19T22:12:00Z",
   "about": "Outside web pages found through farm-name variants and legal-citation searches, together with verified official pages for named parties, institutions and archive custodians connected with the wider Llandough / Leckwith research. Party coverage is not a finding of legal responsibility or involvement. Every target is re-archived weekly; newly added URLs show no capture until a timestamp is returned by the archive worker.",
   "weekly": {
     "worker": "bfe-watchtower-archive",
@@ -4645,7 +4645,7 @@
       "wb": null
     },
     {
-      "u": "https://canfod.glamarchives.gov.uk/records/DB/E/1-8/1-2",
+      "u": "https://canfod.glamarchives.gov.uk/en/records/DB/E/1-8/1-2",
       "host": "canfod.glamarchives.gov.uk",
       "title": "David Stewart’s 1824 survey — Plan 19, Cedfin alias Ty Mawr farm (Llandough)",
       "terms": [
@@ -4655,12 +4655,20 @@
         "Cedfin",
         "David Stewart survey",
         "DB/E/1-2",
-        "Plan 19"
+        "Plan 19",
+        "DB/E/1-8/1-2"
       ],
       "first_seen": "2026-11-19T20:10:00Z",
       "found_by": "catalogue enquiry, 19 Nov 2026",
       "ambiguous": false,
-      "wb": null
+      "wb": {
+        "ts": "20261119203210",
+        "at": "2026-11-19T20:32:10Z",
+        "by": "user"
+      },
+      "aliases": [
+        "https://canfod.glamarchives.gov.uk/records/DB/E/1-8/1-2"
+      ]
     }
   ],
   "order": [
@@ -4987,7 +4995,7 @@
     "https://find-and-update.company-information.service.gov.uk/search/companies?q=Mountjoy+Limited",
     "https://discovery.nationalarchives.gov.uk/results/r?_q=Mountjoy%20Llandough",
     "https://find-and-update.company-information.service.gov.uk/search/companies?q=Western+Ground+Rents+Ltd",
-    "https://canfod.glamarchives.gov.uk/records/DB/E/1-8/1-2"
+    "https://canfod.glamarchives.gov.uk/en/records/DB/E/1-8/1-2"
   ],
   "capture_link": "https://web.archive.org/web/<ts>/<u>"
 }
