@@ -1,6 +1,6 @@
 {
-  "version": "3.4.1",
-  "generated": "2026-11-18T14:15:35.154Z",
+  "version": "3.4.2",
+  "generated": "2026-11-19T20:25:00Z",
   "about": "Outside web pages found through farm-name variants and legal-citation searches, together with verified official pages for named parties, institutions and archive custodians connected with the wider Llandough / Leckwith research. Party coverage is not a finding of legal responsibility or involvement. Every target is re-archived weekly; newly added URLs show no capture until a timestamp is returned by the archive worker.",
   "weekly": {
     "worker": "bfe-watchtower-archive",
@@ -8,14 +8,15 @@
     "schedule": "Sundays from 03:15 UTC, one page at a time, runs back to back until the list is done"
   },
   "counts": {
-    "targets": 308,
+    "targets": 309,
     "new_2026_11_02": 61,
     "own_pages": 15,
     "saved": 108,
     "earlier_capture_only": 10,
     "case_citations_added_2026_11_10": 12,
     "party_targets_added_2026_11_18": 19,
-    "saved_snapshot_as_of": "2026-11-02 first-pass feed snapshot; live counts are read from /watchtower/api/wayback.json"
+    "saved_snapshot_as_of": "2026-11-02 first-pass feed snapshot; live counts are read from /watchtower/api/wayback.json",
+    "canfod_catalogue_targets_added_2026_11_19": 1
   },
   "own": [
     {
@@ -4642,6 +4643,24 @@
       "found_by": "case citation research, 10 Nov 2026",
       "ambiguous": false,
       "wb": null
+    },
+    {
+      "u": "https://canfod.glamarchives.gov.uk/records/DB/E/1-8/1-2",
+      "host": "canfod.glamarchives.gov.uk",
+      "title": "David Stewart’s 1824 survey — Plan 19, Cedfin alias Ty Mawr farm (Llandough)",
+      "terms": [
+        "Llandough",
+        "Great House Farm",
+        "Ty Mawr",
+        "Cedfin",
+        "David Stewart survey",
+        "DB/E/1-2",
+        "Plan 19"
+      ],
+      "first_seen": "2026-11-19T20:10:00Z",
+      "found_by": "catalogue enquiry, 19 Nov 2026",
+      "ambiguous": false,
+      "wb": null
     }
   ],
   "order": [
@@ -4967,7 +4986,8 @@
     "https://historicengland.org.uk/",
     "https://find-and-update.company-information.service.gov.uk/search/companies?q=Mountjoy+Limited",
     "https://discovery.nationalarchives.gov.uk/results/r?_q=Mountjoy%20Llandough",
-    "https://find-and-update.company-information.service.gov.uk/search/companies?q=Western+Ground+Rents+Ltd"
+    "https://find-and-update.company-information.service.gov.uk/search/companies?q=Western+Ground+Rents+Ltd",
+    "https://canfod.glamarchives.gov.uk/records/DB/E/1-8/1-2"
   ],
   "capture_link": "https://web.archive.org/web/<ts>/<u>"
 }

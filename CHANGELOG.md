@@ -1,3 +1,9 @@
+## [3.4.2] - 2026-11-19
+
+### Added
+- Glamorgan Archives Canfod catalogue record DB/E/1-8/1-2: David Stewart’s 1824 estate survey, Plan 19, Llandough. Added the exact current Canfod URL to the Watchtower target feed and the Glamorgan Archives coverage record. The older Epexio URL remains a separate historical/alternate entry.
+- Linked the local text-preservation copy in the Wayback Websites index and the Internet Archive history URL. The catalogue text extraction says “Cedfin alias Ty Mawr farm; in Llandough”. The local copy is explicitly not a facsimile of the source HTML or manuscript plan. No Wayback capture timestamp is recorded until confirmed.
+
 ## Archive worker 1.0.8 — 18 Nov 2026
 
 - Removes the host-wide circuit breaker that marked every remaining URL from a host as skipped after only three unrelated 520/523 responses. The normal weekly pass now gives each URL one attempt, still at six-second pacing and in batches of 30; 429 still backs off for 15 minutes.

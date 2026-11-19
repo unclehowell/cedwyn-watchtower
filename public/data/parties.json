@@ -438,10 +438,11 @@
       "watch_checks": [],
       "wayback_urls": [
         "https://canfod.glamarchives.gov.uk/en/records/DSA/12/1003",
-        "https://canfod.glamarchives.gov.uk/records/D696"
+        "https://canfod.glamarchives.gov.uk/records/D696",
+        "https://canfod.glamarchives.gov.uk/records/DB/E/1-8/1-2"
       ],
       "coverage_status": "partial",
-      "next_action": "Check the official Canfod catalogue for D696, DBDT123/7 and relevant Llandough items; retry 520 pages without flooding the host."
+      "next_action": "Compare watched versions of the Canfod DB/E/1-2 catalogue page with the local text-preservation copy; check the wording of Plan 19 against the original image when the archive confirms the exact page/image reference. Continue other Llandough catalogue checks without assuming catalogue text proves the manuscript wording."
     },
     {
       "id": "archaeology-data-service",
