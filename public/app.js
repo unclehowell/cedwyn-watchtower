@@ -46,20 +46,45 @@ function draw(){
   });
   [].forEach.call(document.querySelectorAll('ol.list li'),function(li){li.hidden=!!f&&li.getAttribute('data-inst')!==f});
 }
+function unwrapGo(value){
+  var current=String(value||'').trim(),u;
+  for(var n=0;n<4&&current;n++){
+    try{u=new URL(current,location.origin);}catch(e){return current;}
+    if(/^\/wayback\/go\/?$/.test(u.pathname)&&u.searchParams.get('u')){
+      current=u.searchParams.get('u');continue;
+    }
+    return u.href;
+  }
+  return current;
+}
+function isIA(value){
+  try{var u=new URL(value);return u.hostname.toLowerCase()==='web.archive.org'&&/^\/web\//.test(u.pathname);}catch(e){return false;}
+}
+function originalFromIA(value){
+  var m=String(value||'').match(/^https?:\/\/web\.archive\.org\/web\/[^/]+\/(https?:\/\/.*)$/i);
+  return m?m[1]:'';
+}
 function open(c){
   var p=D.pmap[c.page]||{},i=D.imap[c.inst]||{};
-  var h='<h3>'+esc(p.title||p.url)+'</h3><p class="url">'+esc(i.name)+' · <a href="'+esc(p.url)+'" rel="noopener" target="_blank">'+esc(p.url)+'</a></p>';
-  h+='<p><span class="tag '+c.type+'">'+LAB[c.type]+'</span> '+(c.d1?fmt(c.d1)+' → ':'')+fmt(c.date)+'</p><p class="what">'+esc(c.summary)+'</p>';
-  (c.rem||[]).forEach(function(t){h+='<span class="q rem">− '+esc(t)+'</span>'});
-  (c.add||[]).forEach(function(t){h+='<span class="q add">+ '+esc(t)+'</span>'});
-  h+='<p class="url">Archive captures of this page: '+(p.captures||0)+' ('+fmt(p.first)+' to '+fmt(p.last)+')</p>';
-  if(c.hits&&c.hits.length){h+='<p class="url">Matching entries:</p>';c.hits.forEach(function(t){h+='<span class="q add">'+esc(t)+'</span>'});}
-  if(c.source)h+='<p class="url">Read from: '+esc(c.source)+'</p>';
-  if(c.after_url||c.before_url)h+='<div class="ba">'+(c.before_url?'<a href="'+esc(c.before_url)+'" rel="noopener" target="_blank">Before · '+fmt(c.d1)+'</a>':'')+(c.after_url?'<a href="'+esc(c.after_url)+'" rel="noopener" target="_blank">'+(c.type==='gone'?'Gone · ':'After · ')+fmt(c.date)+'</a>':'')+'</div>';
-  body.innerHTML=h;history.replaceState(null,'','#c='+c.id);
+  var candidates=[c.after_url,c.before_url],ia='',original=unwrapGo(p.url||'');
+  if(isIA(original)){ia=original;original=originalFromIA(ia);}
+  for(var n=0;n<candidates.length&&!ia;n++){
+    var candidate=unwrapGo(candidates[n]);
+    if(isIA(candidate))ia=candidate;
+  }
+  if(!original&&ia)original=originalFromIA(ia);
+  if(!ia&&original)ia='https://web.archive.org/web/*/'+original;
+  var title=p.title||c.title||original||'Archived page';
+  var view=original?'/wayback/go/?u='+encodeURIComponent(original):'';
+  var h='<h3>'+esc(title)+'</h3>';
+  h+='<p class="what">'+esc(i.name||c.inst||'Institution')+' · '+esc(LAB[c.type]||c.type)+' · '+esc(fmt(c.date))+'</p>';
+  h+='<p class="what">'+esc(c.summary||'No short description is recorded for this snapshot.')+'</p>';
+  if(view)h+='<a class="view-now" href="'+esc(view)+'">View now</a>';
+  if(ia)h+='<p class="url"><strong>Internet Archive Wayback copy</strong><br><span class="plain-url">'+esc(ia)+'</span></p>';
+  if(original)h+='<p class="url"><strong>External page</strong><br><span class="plain-url">'+esc(original)+'</span></p>';
+  body.innerHTML=h;
   if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');
 }
-dlg.addEventListener('close',function(){history.replaceState(null,'',location.pathname)});
 dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
 function merge(d,w){if(!w||!w.events)return d;var have={};d.institutions.forEach(function(i){have[i.id]=i});
   (w.institutions||[]).forEach(function(i){if(!have[i.id]){have[i.id]={id:i.id,name:i.name,short:i.short,n_pages:0,n_changes:0};d.institutions.push(have[i.id])}});
@@ -71,16 +96,11 @@ function merge(d,w){if(!w||!w.events)return d;var have={};d.institutions.forEach
   var k=document.querySelector('ul.key'),seen={};d.changes.forEach(function(c){seen[c.type]=1});
   if(k)[['released','d released'],['archived','d archived'],['absent','d absent'],['present','d present']].forEach(function(x){if(seen[x[0]]){var li=document.createElement('li');li.innerHTML='<i class="'+x[1]+'"></i>'+LAB[x[0]];k.appendChild(li)}});
   return d}
-function absence(s){if(!s||!s.targets)return;var box=document.createElement('section');box.id='absence';box.className='abs cw-noclamp';box.setAttribute('data-cw-noclamp','');
-  var h='<h2>Absence watch</h2><p class="what">Indexes and catalogues where a record would appear if it were made public. Each check is dated, so a later appearance is timestamped. Last run '+esc(fmt(s.generated))+'.</p><ul class="abs-l">';
-  s.targets.forEach(function(t){h+='<li><span class="tag '+(t.status==='present'?'appeared':(t.status==='absent'?'gone':''))+'">'+esc(t.status==='present'?'In index':(t.status==='absent'?'Not in index':'Not checked'))+'</span> <a href="'+esc(t.page_url)+'" rel="noopener">'+esc(t.label)+'</a> <span class="url">'+esc((D.imap[t.inst]||{}).short||t.inst)+(t.first_checked?' · watched since '+esc(fmt(t.first_checked)):'')+(t.checked?' · checked '+esc(fmt(t.checked)):'')+'</span></li>'});
-  box.innerHTML=h+'</ul>';var k=document.querySelector('ul.key');(k&&k.parentNode?k.parentNode:document.getElementById('app')).insertBefore(box,document.querySelector('ol.list'))}
-Promise.all([fetch('data/changes.json?n='+Date.now()).then(function(r){return r.json()}),
-  fetch('data/watch-events.json?n='+Date.now()).then(function(r){return r.ok?r.json():null}).catch(function(){return null}),
-  fetch('data/watch-status.json?n='+Date.now()).then(function(r){return r.ok?r.json():null}).catch(function(){return null})]).then(function(rs){var d=merge(rs[0],rs[1]);
+Promise.all([fetch('data/changes.json?n='+Date.now()).then(function(r){if(!r.ok)throw new Error('changes feed unavailable');return r.json()}),
+  fetch('data/watch-events.json?n='+Date.now()).then(function(r){return r.ok?r.json():null}).catch(function(){return null})]).then(function(rs){var d=merge(rs[0],rs[1]);
   D=d;D.pmap={};D.pages.forEach(function(p){D.pmap[p.id]=p});D.imap={};D.institutions.forEach(function(i){D.imap[i.id]=i});
   D.institutions.forEach(function(i){var o=document.createElement('option');o.value=i.id;o.textContent=i.name+' ('+i.n_changes+')';sel.appendChild(o)});
   sel.addEventListener('change',draw);var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(draw,150)});
-  draw();absence(rs[2]);var m=/^#c=(\w+)/.exec(location.hash);if(m){var c=D.changes.filter(function(x){return x.id===m[1]})[0];if(c)open(c)}
+  draw();
 }).catch(function(){chart.textContent=''});
 })();
