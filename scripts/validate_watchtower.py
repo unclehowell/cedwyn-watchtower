@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import sys
+import re
 from pathlib import Path
 from html.parser import HTMLParser
 
@@ -18,12 +19,11 @@ def load_json(path: str):
 class WatchtowerHTML(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
-        self.case_section_count = 0
         self.citation_data_link = False
+        self.targets_data_link = False
+        self.parties_data_link = False
         self.local_ids: set[str] = set()
         self.duplicate_ids: list[str] = []
-        self.wayback_heading = False
-        self.text: list[str] = []
 
     def handle_starttag(self, tag, attrs):
         values = dict(attrs)
@@ -32,15 +32,12 @@ class WatchtowerHTML(HTMLParser):
             if element_id in self.local_ids:
                 self.duplicate_ids.append(element_id)
             self.local_ids.add(element_id)
-        if element_id == "case-citations":
-            self.case_section_count += 1
         if values.get("href") == "data/case-citations.json":
             self.citation_data_link = True
-        if element_id == "wayback":
-            self.wayback_heading = True
-
-    def handle_data(self, data):
-        self.text.append(data)
+        if values.get("href") == "data/targets.json":
+            self.targets_data_link = True
+        if values.get("href") == "data/parties.json":
+            self.parties_data_link = True
 
 
 def require(condition: bool, message: str) -> None:
@@ -125,16 +122,20 @@ def main() -> int:
 
     page = WatchtowerHTML()
     page.feed(html)
-    require(page.case_section_count == 1,
-            "The page must contain exactly one judicial citation section.")
+    # The visitor-facing page is intentionally compact: the scatter graph and
+    # summary lead directly to the footer. Detailed registers remain in their
+    # machine-readable feeds and are validated above.
     require(page.citation_data_link,
-            "The page must link to data/case-citations.json.")
-    require(page.wayback_heading,
-            "The page must retain the Wayback target section.")
-    page_text = " ".join(page.text)
-    for item in judgments:
-        require(item["neutral_citation"] in page_text,
-                f"Register entry missing from the page: {item['neutral_citation']}")
+            "The page must expose data/case-citations.json.")
+    require(page.targets_data_link,
+            "The page must expose data/targets.json.")
+    require(page.parties_data_link,
+            "The page must expose data/parties.json.")
+    tail = re.search(r'<p class="lh">.*?</p>\s*(.*?)<footer\b', html, re.S)
+    require(tail is not None,
+            "The page must place its footer after the summary.")
+    require(not tail.group(1).strip(),
+            "Only the footer may appear after the point/institution/date summary.")
     require(not page.duplicate_ids,
             f"Duplicate HTML IDs found: {page.duplicate_ids}")
 
@@ -175,14 +176,8 @@ def main() -> int:
         for ref in item.get("evidence", []):
             require(ref.get("id") and ref.get("title") and str(ref.get("url", "")).startswith("https://"),
                     f"Party entry has an incomplete public evidence anchor: {item.get('id')}")
-    require('id="parties"' in html and 'id="parties-body"' in html,
-            "The public page must contain the party coverage section and render target.")
-    require('href="data/parties.json"' in html,
-            "The page must link to the machine-readable party coverage data.")
-    require('src="parties.js?v=' in html and (ROOT / "public/parties.js").is_file(),
-            "The page must load the party coverage renderer.")
-    require((ROOT / "public/parties.css").is_file(),
-            "The page must include the party coverage stylesheet.")
+    # The party register and its supporting renderer remain in the repository,
+    # but are intentionally not rendered on the compact scatter-graph page.
 
     print(
         "Watchtower validation passed: "

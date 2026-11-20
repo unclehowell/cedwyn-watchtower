@@ -1,3 +1,14 @@
+## [3.5.0] - 2026-11-20
+
+### Changed
+- Watchtower now shows the scatter graph, filter, legend and point/institution/date summary, followed immediately by the footer. Removed the event list and the visible tracked-page, live-check, institutional-coverage, citation and Peekaboo sections from this page; the machine-readable feeds remain available.
+- Selecting a scatter dot (or activating it from the keyboard) opens a compact snapshot modal. The modal provides a same-site `/wayback/go/` “View now” action for our local copy, followed by the Internet Archive Wayback URL and original external URL as plain text, not hyperlinks.
+- Removed automatic modal opening from URL fragments and removed outbound source-page links from the modal. When the feed has no exact Internet Archive capture URL, the modal displays the wildcard Wayback address rather than inventing a timestamp.
+- Removed the old live-status, Wayback-detail and party-register scripts from this page, as their visible sections are no longer rendered. The validator checks that the summary leads directly to the footer while independently validating the retained citation, party and archive datasets.
+
+### Scope
+- The existing Watchtower data feeds, scatter points, institution filter, event-type legend and footer are retained. This is a presentation change; it does not delete or alter the underlying event records.
+
 ## [3.4.3] - 2026-11-19
 
 ### Corrected
