@@ -131,7 +131,7 @@ def main() -> int:
             "The page must expose data/targets.json.")
     require(page.parties_data_link,
             "The page must expose data/parties.json.")
-    tail = re.search(r'<p class="lh">.*?</p>\\s*(.*?)<footer\\b', html, re.S)
+    tail = re.search(r'<p class="lh">.*?</p>\s*(.*?)<footer\b', html, re.S)
     require(tail is not None,
             "The page must place its footer after the summary.")
     require(not tail.group(1).strip(),
