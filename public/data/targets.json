@@ -1,6 +1,6 @@
 {
   "version": "3.4.4",
-  "generated": "2026-11-25T17:59:55.122Z",
+  "generated": "2026-11-25T18:00:09.077Z",
   "about": "Outside web pages found through farm-name variants and legal-citation searches, together with verified official pages for named parties, institutions and archive custodians connected with the wider Llandough / Leckwith research. Party coverage is not a finding of legal responsibility or involvement. Every target is re-archived weekly; newly added URLs show no capture until a timestamp is returned by the archive worker.",
   "weekly": {
     "worker": "bfe-watchtower-archive",
@@ -4686,6 +4686,17 @@
     }
   ],
   "order": [
+    "https://www.whatdotheyknow.com/request/great_house_farm_llandough_cardi",
+    "https://www.whatdotheyknow.com/request/1988_dispossession_of_great_hous/response/3507980/attach/4/RE%20Internal%20review%20of%20Freedom%20of%20Information%20request%201988%20Dispossession%20of%20Great%20House%20Farm%20Llandough%20from%20the%20Williams%20Buckler%20Family.txt",
+    "https://www.whatdotheyknow.com/request/1988_dispossession_of_great_hous/response/3507980/attach/3/Freedom%20of%20Information%20request%201988%20Dispossession%20of%20Great%20House%20Farm%20Llandough%20from%20the%20Williams%20Buckler%20Family.txt",
+    "https://www.whatdotheyknow.com/request/1988_dispossession_of_great_hous/response/3431830/attach/3/FOI2026.09019%20Buckler.pdf",
+    "https://www.whatdotheyknow.com/request/bp_vs_buckler_1987/response/3087059/attach/3/FOI%20250628005.pdf",
+    "https://www.whatdotheyknow.com/request/1988_dispossession_of_great_hous/response/3588665/attach/3/20261010%20FOI2026%2009190%20Buckler%20Farm%20Dispossession%20Rev.pdf",
+    "https://www.whatdotheyknow.com/request/bp_vs_buckler_1987_1988",
+    "https://www.whatdotheyknow.com/request/bp_vs_buckler_1987",
+    "https://www.whatdotheyknow.com/request/2020_01590_hyb",
+    "https://www.whatdotheyknow.com/request/1988_dispossession_of_great_hous",
+    "https://www.whatdotheyknow.com/request/meeting_of_22_october_2026_remot",
     "https://bucklerfamily.estate/watchtower/",
     "https://bucklerfamily.estate/watchtower/data/farm.json",
     "https://bucklerfamily.estate/watchtower/data/changes.json",
@@ -4722,7 +4733,6 @@
     "https://www.british-history.ac.uk/cardiff-records/vol3/pp580-583",
     "http://sites.rootsweb.com/~wlsglfhs/cardiff91.htm",
     "https://forebears.io/wales/glamorganshire/penarth",
-    "https://www.whatdotheyknow.com/request/great_house_farm_llandough_cardi",
     "https://www.casgliadywerin.cymru/items/871431",
     "https://peacepetition.library.wales/golwg/6217722/163,2769,2987,222",
     "https://deisebheddwch.llyfrgell.cymru/golwg/6217722/163,2769,2987,222",
@@ -4803,15 +4813,6 @@
     "https://www.british-history.ac.uk/cardiff-records/vol5/pp369-394",
     "https://www.archwilio.org.uk/arch/query/page.php?watprn=GGAT02038s&dbname=ggat&tbname=core",
     "https://wikishire.co.uk/wiki/Llandough_juxta_Cardiff",
-    "https://www.whatdotheyknow.com/request/1988_dispossession_of_great_hous/response/3507980/attach/4/RE%20Internal%20review%20of%20Freedom%20of%20Information%20request%201988%20Dispossession%20of%20Great%20House%20Farm%20Llandough%20from%20the%20Williams%20Buckler%20Family.txt",
-    "https://www.whatdotheyknow.com/request/1988_dispossession_of_great_hous/response/3507980/attach/3/Freedom%20of%20Information%20request%201988%20Dispossession%20of%20Great%20House%20Farm%20Llandough%20from%20the%20Williams%20Buckler%20Family.txt",
-    "https://www.whatdotheyknow.com/request/1988_dispossession_of_great_hous/response/3431830/attach/3/FOI2026.09019%20Buckler.pdf",
-    "https://www.whatdotheyknow.com/request/bp_vs_buckler_1987/response/3087059/attach/3/FOI%20250628005.pdf",
-    "https://www.whatdotheyknow.com/request/1988_dispossession_of_great_hous/response/3588665/attach/3/20261010%20FOI2026%2009190%20Buckler%20Farm%20Dispossession%20Rev.pdf",
-    "https://www.whatdotheyknow.com/request/bp_vs_buckler_1987_1988",
-    "https://www.whatdotheyknow.com/request/bp_vs_buckler_1987",
-    "https://www.whatdotheyknow.com/request/2020_01590_hyb",
-    "https://www.whatdotheyknow.com/request/1988_dispossession_of_great_hous",
     "https://vlex.co.uk/vid/b-p-properties-ltd-793844841",
     "https://upload.wikimedia.org/wikipedia/commons/6/63/Cardiff_records%3B_being_materials_for_a_history_of_the_county_borough_from_the_earliest_times_%28IA_cu31924091779151%29.pdf",
     "https://unitedtechnocracy.blogspot.com/2012/08/the-great-house-farm-story.html",
@@ -5009,8 +5010,7 @@
     "https://find-and-update.company-information.service.gov.uk/search/companies?q=Mountjoy+Limited",
     "https://discovery.nationalarchives.gov.uk/results/r?_q=Mountjoy%20Llandough",
     "https://find-and-update.company-information.service.gov.uk/search/companies?q=Western+Ground+Rents+Ltd",
-    "https://canfod.glamarchives.gov.uk/en/records/DB/E/1-8/1-2",
-    "https://www.whatdotheyknow.com/request/meeting_of_22_october_2026_remot"
+    "https://canfod.glamarchives.gov.uk/en/records/DB/E/1-8/1-2"
   ],
   "capture_link": "https://web.archive.org/web/<ts>/<u>"
 }
