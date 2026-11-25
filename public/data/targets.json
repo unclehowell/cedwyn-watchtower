@@ -1,6 +1,6 @@
 {
   "version": "3.4.4",
-  "generated": "2026-11-19T22:16:00Z",
+  "generated": "2026-11-25T17:59:55.122Z",
   "about": "Outside web pages found through farm-name variants and legal-citation searches, together with verified official pages for named parties, institutions and archive custodians connected with the wider Llandough / Leckwith research. Party coverage is not a finding of legal responsibility or involvement. Every target is re-archived weekly; newly added URLs show no capture until a timestamp is returned by the archive worker.",
   "weekly": {
     "worker": "bfe-watchtower-archive",
@@ -8,7 +8,7 @@
     "schedule": "Sundays from 03:15 UTC, one page at a time, runs back to back until the list is done"
   },
   "counts": {
-    "targets": 309,
+    "targets": 310,
     "new_2026_11_02": 61,
     "own_pages": 15,
     "saved": 108,
@@ -4669,6 +4669,20 @@
       "aliases": [
         "https://canfod.glamarchives.gov.uk/records/DB/E/1-8/1-2"
       ]
+    },
+    {
+      "u": "https://www.whatdotheyknow.com/request/meeting_of_22_october_2026_remot",
+      "host": "www.whatdotheyknow.com",
+      "title": "Meeting of 22 October 2026 — remote (WhatDoTheyKnow incoming response 3635042)",
+      "terms": [
+        "meeting of 22 October 2026",
+        "incoming-3635042",
+        "WhatDoTheyKnow"
+      ],
+      "first_seen": "2026-11-25T17:59:55.121Z",
+      "found_by": "user-supplied snapshot backlog, 25 Nov 2026",
+      "ambiguous": false,
+      "wb": null
     }
   ],
   "order": [
@@ -4995,7 +5009,8 @@
     "https://find-and-update.company-information.service.gov.uk/search/companies?q=Mountjoy+Limited",
     "https://discovery.nationalarchives.gov.uk/results/r?_q=Mountjoy%20Llandough",
     "https://find-and-update.company-information.service.gov.uk/search/companies?q=Western+Ground+Rents+Ltd",
-    "https://canfod.glamarchives.gov.uk/en/records/DB/E/1-8/1-2"
+    "https://canfod.glamarchives.gov.uk/en/records/DB/E/1-8/1-2",
+    "https://www.whatdotheyknow.com/request/meeting_of_22_october_2026_remot"
   ],
   "capture_link": "https://web.archive.org/web/<ts>/<u>"
 }
